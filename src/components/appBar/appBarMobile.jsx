@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import { NavLink } from "react-router-dom";
 //Material UI components
 import {
     AppBar,
@@ -18,7 +18,8 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { StyledToolbar } from "../../styles/appBar";
 
 
-export const AppMobileBar = () => {
+
+export const AppBarMobile = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -42,7 +43,10 @@ export const AppMobileBar = () => {
                         aria-label="open drawer"
                         sx={{ mr: 2 }}
                     >
-                        <img src="/src/images/logo.png"/>
+                        <NavLink to="/">
+                            <img src="/src/resources/images/logo.png"/>
+                        </NavLink>
+                        
                     </Box>
                     <IconButton
                         id="basic-button"
@@ -62,9 +66,42 @@ export const AppMobileBar = () => {
                         'aria-labelledby': 'basic-button',
                         }}
                     >
-                        <MenuItem onClick={handleClose}>Tizanas</MenuItem>
-                        <MenuItem onClick={handleClose}>Paquetes</MenuItem>
-                        <MenuItem onClick={handleClose}>Accesorios</MenuItem>
+                        <NavLink
+                            to="product_tizanas/"
+                            className={({ isActive, isPending }) =>
+                                isActive
+                                ? "active"
+                                : isPending
+                                ? "pending"
+                                : "none"
+                            }                        
+                        >
+                            <MenuItem onClick={handleClose}>Tizanas</MenuItem>
+                        </NavLink>
+                        <NavLink
+                            to="product_paquetes/"
+                            className={({ isActive, isPending }) =>
+                                isActive
+                                ? "active"
+                                : isPending
+                                ? "pending"
+                                : "none"
+                            }                        
+                        >
+                            <MenuItem onClick={handleClose}>Paquetes</MenuItem>
+                        </NavLink>
+                        <NavLink
+                            to="product_accesorios/"
+                            className={({ isActive, isPending }) =>
+                                isActive
+                                ? "active"
+                                : isPending
+                                ? "pending"
+                                : "none"
+                            }                        
+                        >
+                            <MenuItem onClick={handleClose}>Accesorios</MenuItem>
+                        </NavLink>   
                     </Menu>
                 </StyledToolbar>
             </AppBar>

@@ -1,0 +1,14 @@
+.active {
+    text-decoration: none;
+    color: #D0ABD0
+}
+
+.pending {
+    text-decoration: none;
+    color:rgb(127, 77, 123)
+}
+
+.none {
+    text-decoration: none;
+    color:black
+}

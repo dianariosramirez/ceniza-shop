@@ -1,5 +1,5 @@
-import * as React from 'react';
-
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 // MUI Components
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -11,8 +11,9 @@ import ShoppingCartCheckoutRoundedIcon from '@mui/icons-material/ShoppingCartChe
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 
 
+
 export const BottomNav = () => {
-  const [value, setValue] = React.useState('recents');
+  const [value, setValue] = useState('recents');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -20,12 +21,24 @@ export const BottomNav = () => {
 
   return (
     <BottomNavigation sx={{ width: '100%' }} value={value} onChange={handleChange}>
+
       <BottomNavigationAction
         label="Carrito de compra"
         value="carrito de compra"
         icon={
           <Badge badgeContent={1} color="primary">
-            <ShoppingCartCheckoutRoundedIcon />
+            <NavLink
+              to="shopping_cart/"
+              className={({ isActive, isPending }) =>
+                  isActive
+                  ? "active"
+                  : isPending
+                  ? "pending"
+                  : "none"
+              }  
+            >
+              <ShoppingCartCheckoutRoundedIcon />
+            </NavLink>
           </Badge>
         }
       />
@@ -34,9 +47,20 @@ export const BottomNav = () => {
         value="favoritos"
         icon={
           <Badge badgeContent={1} color="primary">
-            <FavoriteBorderRoundedIcon />
+            <NavLink
+              to="favorites/"
+              className={({ isActive, isPending }) =>
+                  isActive
+                  ? "active"
+                  : isPending
+                  ? "pending"
+                  : "none"
+              }  
+            >
+              <FavoriteBorderRoundedIcon />
+            </NavLink>
           </Badge>        
-      }
+        }
       />
       <BottomNavigationAction
         label="Perfil"
