@@ -2,7 +2,7 @@ import React from 'react';
 
 // MUI components
 import { Box, Grid, IconButton, Typography } from '@mui/material';
-import { Facebook } from '@mui/icons-material';
+import { Facebook, Instagram } from '@mui/icons-material';
 
 export const Footer = () => {
   return (
@@ -28,11 +28,14 @@ export const Footer = () => {
           <IconButton>
             <Facebook/>
           </IconButton>
+          <IconButton>
+            <Instagram/>
+          </IconButton>
         </Grid>
         <Grid item xs={8} md={6} sx={{
-          backgroundColor: 'white'
+          backgroundColor: '#D0ABD0'
         }}>
-          <h1>hi</h1>
+        
         </Grid>
       </Grid>
     </Box>
