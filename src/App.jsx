@@ -14,15 +14,18 @@ import { Favorites } from './pages/favorites'
 //Resources
 import { accesorios, paquetes, tizanas } from './resources/productsData';
 
+// Constants
+import { REPO_BASE_NAME } from './commons/constants';
+
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: REPO_BASE_NAME,
     element: <ApplicationBar/>,
     errorElement: <ErrorPage />,
     children: [
-      { 
-        index: true, 
-        element: <Home /> 
+      {
+        index: true,
+        element: <Home />
       },
       {
         path: "product_tizanas/",
