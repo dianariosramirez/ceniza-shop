@@ -17,7 +17,8 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 // Styles
 import { StyledToolbar } from "../../styles/appBar";
 
-
+// Logo
+import logo from '../../resources/images/logo.png';
 
 export const AppBarMobile = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -44,7 +45,7 @@ export const AppBarMobile = () => {
                         sx={{ mr: 2 }}
                     >
                         <NavLink to="/">
-                            <img src="/src/resources/images/logo.png"/>
+                            <img src={ logo }/>
                         </NavLink>
                         
                     </Box>

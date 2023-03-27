@@ -20,6 +20,9 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
 // Styles
 import { StyledToolbar, MenuList } from "../../styles/appBar";
 
+// Logo
+import logo from '../../resources/images/logo.png';
+
 export const AppBarDesktop = () => {
 
     return (
@@ -34,7 +37,7 @@ export const AppBarDesktop = () => {
                         sx={{ mr: 2 }}
                     >
                         <NavLink to="/">
-                            <img src="/src/resources/images/logo.png"/>  
+                            <img src={ logo } />  
                         </NavLink>
 
                     </Box>

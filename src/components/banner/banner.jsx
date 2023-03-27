@@ -1,5 +1,5 @@
 import React from 'react';
-import {slider} from './bannerSlider'
+import { sliderToCarrusel } from './bannerSlider'
 
 // Components
 import { Item } from './item';
@@ -13,7 +13,7 @@ export const Banner = () => {
     return (
         <Carousel>
             {
-                slider.map( item => <Item key={item.id} item={item} /> )
+                sliderToCarrusel.map( item => <Item key={item.id} item={item} /> )
             }
         </Carousel>
     )

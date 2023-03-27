@@ -16,6 +16,7 @@ export const Item = ({item}) => {
             sx={{
                 display: 'flex',
                 flexDirection: 'row',
+                justifyContent: 'center',
                 width:'100%'
             }}
         >
@@ -23,9 +24,6 @@ export const Item = ({item}) => {
                 src={ item.image } 
                 width='100%'
             />
-            <Typography variant="h2" sx={{ml:5}}>
-                Ceniza
-            </Typography>
         </Paper>
     )
 }
