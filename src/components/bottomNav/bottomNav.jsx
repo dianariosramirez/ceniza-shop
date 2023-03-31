@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 // MUI Components
 import BottomNavigation from '@mui/material/BottomNavigation';
@@ -13,15 +13,8 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
 
 
 export const BottomNav = () => {
-  const [value, setValue] = useState('recents');
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
   return (
-    <BottomNavigation sx={{ width: '100%' }} value={value} onChange={handleChange}>
-
+    <BottomNavigation sx={{ width: '100%' }}>
       <BottomNavigationAction
         label="Carrito de compra"
         value="carrito de compra"

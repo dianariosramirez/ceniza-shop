@@ -1,20 +1,17 @@
 import React from 'react';
 
 // MUI components
-import { Box, Divider, Grid, IconButton, Typography } from '@mui/material';
-import { Facebook, Instagram, WhatsApp } from '@mui/icons-material';
+import { Box, Divider, IconButton, Typography } from '@mui/material';
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import { Facebook, Instagram } from '@mui/icons-material';
 import { Stack } from '@mui/system';
-
-// Logo
-import logo from '../../resources/images/logo2.png';
-
 
 export const Footer = () => {
   return (
     <Box sx={{ mt: 5, backgroundColor: "#eb7072"}} >
       <Grid container spacing={0} >
         <Grid 
-          item xs={12} 
+          xs={12} 
           md={12} 
           sx={{
             display: 'flex',
@@ -25,12 +22,8 @@ export const Footer = () => {
           <Typography sx={{fontStyle: 'italic'}}>
             "Todo en la vida es mejor con tizanas"
           </Typography>
-          <Divider/>
         </Grid>
-        
-
         <Grid 
-          item 
           xs={6} 
           md={6} 
           sx={{ 
@@ -38,11 +31,11 @@ export const Footer = () => {
             justifyContent: 'center' 
           }}
         >
-          <img src={ logo } width='100px'/>
           <Stack sx={{ margin: 2}}>
             <Typography>
               Contáctanos:
             </Typography>
+            <Divider/>
             <Typography>
               +00 000 000 0000
             </Typography>
@@ -50,7 +43,7 @@ export const Footer = () => {
         </Grid>
 
         <Grid 
-          item xs={6} 
+          xs={6} 
           md={6} 
           sx={{
             display: 'flex', 
@@ -70,7 +63,6 @@ export const Footer = () => {
         </Grid>
 
         <Grid 
-          item 
           xs={12} 
           md={12} 
           sx={{
@@ -84,7 +76,6 @@ export const Footer = () => {
             Ceniza.mx | Web por: Diana Rios 
           </Typography>
         </Grid>
-
       </Grid>      
     </Box>
   );
