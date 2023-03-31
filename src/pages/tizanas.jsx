@@ -1,24 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 
 //MUI components
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { Box } from "@mui/system";
 
 // Components
 import { ProductCard } from "../components/productCard/productCard";
+import { TitlePage } from "../components/titlePage/titlePage";
 
 export const Tizanas = ( { productData } ) => {
     return(  
-        <Box sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            margin: '20px'
-        }}>
-            <Typography variant="h5" sx={{
-                mb: '20px'
-            }}>
-                T i z a n a s :
-            </Typography>
+        <Box m={3}>
+            <TitlePage namePage={"Tizanas"}/>
             <Grid container spacing={4}>
             {
                 productData.map( tizana => {

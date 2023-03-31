@@ -18,7 +18,6 @@ import { accesorios, paquetes, tizanas } from './resources/productsData';
 // Constants
 import { REPO_BASE_NAME } from './commons/constants';
 
-
 const router = createBrowserRouter([
   {
     path: REPO_BASE_NAME,
