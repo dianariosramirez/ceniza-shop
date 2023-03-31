@@ -1,14 +1,15 @@
 import React from "react";
 
 // MUI components
-import { Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import { TitlePage } from "../components/titlePage/titlePage";
 
 export const ShoppingCart = () => {
     return(
-        <Typography variant="h5" sx={{
-            mb: '20px'
-        }}>
-            S h o p p i n g   C a r t  :
-        </Typography>
+        <Box m={3}>
+            <TitlePage namePage={"Carrito de compra"}/>
+
+        </Box>
+
     )
 }

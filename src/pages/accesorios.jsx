@@ -2,10 +2,11 @@ import React from "react";
 
 // MUI components
 import { Box } from "@mui/system";
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 
 // Components
 import { ProductCard } from "../components/productCard/productCard";
+import { TitlePage } from "../components/titlePage/titlePage";
 
 
 export const Accesorios = ( { productData } ) => {
@@ -15,11 +16,7 @@ export const Accesorios = ( { productData } ) => {
             flexDirection: 'column',
             margin: '20px'
         }}>
-            <Typography variant="h5" sx={{
-                mb: '20px'
-            }}>
-                A c c e s o r i o s :
-            </Typography>
+            <TitlePage namePage={"Accesorios"}/>
             <Grid container spacing={4}>
                 {
                     productData.map( accesorio => {
