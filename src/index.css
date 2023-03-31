@@ -1,12 +1,12 @@
 
 .active {
     text-decoration: none;
-    color: #D0ABD0
+    color: #eb7072
 }
 
 .pending {
     text-decoration: none;
-    color:rgb(127, 77, 123)
+    color: #323831
 }
 
 .none {

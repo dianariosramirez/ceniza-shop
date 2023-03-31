@@ -46,7 +46,7 @@ export const BottomNav = () => {
         label="Favoritos"
         value="favoritos"
         icon={
-          <Badge badgeContent={1} color="primary">
+          <Badge badgeContent={3} color="primary">
             <NavLink
               to="favorites/"
               className={({ isActive, isPending }) =>
@@ -65,7 +65,20 @@ export const BottomNav = () => {
       <BottomNavigationAction
         label="Perfil"
         value="perfil"
-        icon={<PersonOutlineRoundedIcon />}
+        icon={
+          <NavLink
+              to="profile/"
+              className={({ isActive, isPending }) =>
+                  isActive
+                  ? "active"
+                  : isPending
+                  ? "pending"
+                  : "none"
+              }  
+          >
+            <PersonOutlineRoundedIcon />
+          </NavLink>
+        }
       />
     </BottomNavigation>
   );

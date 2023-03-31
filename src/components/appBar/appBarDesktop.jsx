@@ -23,6 +23,9 @@ import { StyledToolbar, MenuList } from "../../styles/appBar";
 // Logo
 import logo from '../../resources/images/logo.png';
 
+// Constants
+import { REPO_BASE_NAME } from '../../commons/constants';
+
 export const AppBarDesktop = () => {
 
     return (
@@ -36,7 +39,7 @@ export const AppBarDesktop = () => {
                         aria-label="open drawer"
                         sx={{ mr: 2 }}
                     >
-                        <NavLink to="/">
+                        <NavLink to={ REPO_BASE_NAME }>
                             <img src={ logo } />  
                         </NavLink>
 
@@ -125,14 +128,24 @@ export const AppBarDesktop = () => {
                             </Badge>
                         </IconButton>
                     </NavLink>
-                    <IconButton
-                        size="large"
-                        aria-label="display more actions"
-                        edge="end"
-                        color="inherit"
+                    <NavLink
+                        to="profile/"
+                        className={({ isActive, isPending }) =>
+                            isActive
+                            ? "active"
+                            : isPending
+                            ? "pending"
+                            : "none"
+                        } 
                     >
-                        <PersonOutlineRoundedIcon />
-                    </IconButton>
+                        <IconButton
+                            size="large"
+                            aria-label="display more actions"
+                            edge="end"
+                        >
+                            <PersonOutlineRoundedIcon />
+                        </IconButton>
+                    </NavLink>
                 </StyledToolbar>
             </AppBar> 
         </Box>

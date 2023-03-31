@@ -10,12 +10,14 @@ import { Home } from './pages/home';
 import { Accesorios } from './pages/accesorios';
 import { ShoppingCart } from './pages/shoppingCart';
 import { Favorites } from './pages/favorites'
+import { Profile } from './pages/profile';
 
 //Resources
 import { accesorios, paquetes, tizanas } from './resources/productsData';
 
 // Constants
 import { REPO_BASE_NAME } from './commons/constants';
+
 
 const router = createBrowserRouter([
   {
@@ -50,6 +52,11 @@ const router = createBrowserRouter([
       {
         path: "favorites/",
         element: <Favorites />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "profile/",
+        element: <Profile />,
         errorElement: <ErrorPage />,
       },
     ],

@@ -11,7 +11,7 @@ import logo from '../../resources/images/logo2.png';
 
 export const Footer = () => {
   return (
-    <Box sx={{ mt: 5, backgroundColor: '#DED4EA'}}>
+    <Box sx={{ mt: 5, backgroundColor: "#eb7072"}} >
       <Grid container spacing={0} >
         <Grid 
           item xs={12} 

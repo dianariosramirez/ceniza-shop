@@ -13,12 +13,14 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
-
 // Styles
 import { StyledToolbar } from "../../styles/appBar";
 
 // Logo
 import logo from '../../resources/images/logo.png';
+
+// Constants
+import { REPO_BASE_NAME } from '../../commons/constants';
 
 export const AppBarMobile = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -44,7 +46,7 @@ export const AppBarMobile = () => {
                         aria-label="open drawer"
                         sx={{ mr: 2 }}
                     >
-                        <NavLink to="/">
+                        <NavLink to={ REPO_BASE_NAME }>
                             <img src={ logo }/>
                         </NavLink>
                         
