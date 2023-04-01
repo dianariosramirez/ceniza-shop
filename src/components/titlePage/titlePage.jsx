@@ -1,15 +1,13 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 //MUI components
 import { Stack } from '@mui/system';
-import { Divider, Typography } from '@mui/material';
-
-// Context
-import { MatchesContext } from '../../context/matchesContext';
+import { Divider, Typography, useMediaQuery, useTheme } from '@mui/material';
 
 
 export const TitlePage = ( {namePage} ) => {
-    const { matches } = useContext( MatchesContext )
+  const theme = useTheme();
+  const matches = useMediaQuery( theme.breakpoints.down('md'));
   return (
     <Stack mb={4}>
         <Divider />

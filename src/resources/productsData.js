@@ -17,43 +17,43 @@ import cupGreen from "./images/prod-cupgreen.png";
 
 export const tizanas = [
     {
-        id: 11,
+        id: 1,
         name: 'Recuérdame',
         price: '$9.99',
         image: recuerdame,
     },
     {
-        id: 22,
+        id: 2,
         name: 'Hakuna Matata',
         price: '$9.99',
         image: hakuna,
     },
     {
-        id: 33,
+        id: 3,
         name: 'Atardecer',
         price: '$9.99',
         image: atardecer,
     },
     {
-        id: 44,
+        id: 4,
         name: 'Raiz',
         price: '$9.99',
         image: raiz,
     },
     {
-        id: 55,
+        id: 5,
         name: 'Ocaso',
         price: '$9.99',
         image: ocaso,
     },
     {
-        id: 66,
+        id: 6,
         name: 'Oasis',
         price: '$9.99',
         image: oasis,
     },
     {
-        id: 77,
+        id: 7,
         name: 'Días rosas',
         price: '$9.99',
         image: dias,
@@ -64,13 +64,13 @@ export const tizanas = [
 
 export const paquetes = [
     {
-        id: 88,
+        id: 8,
         name: 'Kit navideño',
         price: '$9.99',
         image: paquete1,
     },
     {
-        id: 99,
+        id: 9,
         name: 'Kit 2',
         price: '$9.99',
         image: paquete2,

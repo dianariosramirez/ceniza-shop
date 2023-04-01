@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 
 //MUI components
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
-// Context
-import { MatchesContext } from "../../context/matchesContext";
 
 export const About = () => {
-    const { matches } = useContext( MatchesContext);
+    const theme = useTheme();
+    const matches = useMediaQuery( theme.breakpoints.down('md'));
     return (
         <Box>
             <Typography variant={ matches ? "h4" : "h3" } textAlign="center" mb={2}>
@@ -17,26 +16,27 @@ export const About = () => {
             <Grid container spacing={1}>
                 <Grid 
                     xs={12} 
-                    md={6}           
+                    md={4}           
                     sx={{ 
                         display: 'flex', 
                         justifyContent: matches ?  'center' : 'flex-end',
                         margin: '10px'
                     }}
                 >
-                    <img 
-                        src="https://scontent.fmtt1-1.fna.fbcdn.net/v/t1.6435-9/119239976_322153739124631_3740679417574945144_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a26aad&_nc_ohc=7uFcwuxJ5-oAX_4lhDI&_nc_ht=scontent.fmtt1-1.fna&oh=00_AfBf0fBwkJNbJMZpLpJqz-KVoPF8MBQaH7t1MWH38XFL4A&oe=644DCD05" 
-                        alt="About us" 
-                        style={{
-                            width: matches ? "200px" : '400px',
-                            height: matches ? "200px" : '400px',
-                            borderRadius: matches ? "100px" : '200px'
+                    <Box 
+                        component="img"
+                        alt="Sobre nosotros"
+                        src="https://scontent.fmtt1-1.fna.fbcdn.net/v/t1.6435-9/122582028_351210052885666_470377248405607510_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a26aad&_nc_ohc=9Ty0OkR_2gIAX_IdZpc&_nc_ht=scontent.fmtt1-1.fna&oh=00_AfAyB_zsDGBF8Xz0W6K6Re1iJUXycgsqUJFFBSkqDx1elg&oe=644EE597"
+                        sx={{
+                            width: matches ? "200px" : "400px",
+                            height: matches ? "200px" : "400px",
+                            borderRadius: matches ? "100px" : "200px"
                         }}
                     />
                 </Grid>
                 <Grid 
                     xs={12} 
-                    md={4}
+                    md={6}
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',

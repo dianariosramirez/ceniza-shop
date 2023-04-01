@@ -1,5 +1,8 @@
-import React, {useContext} from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
+
+// MUI
+import { useMediaQuery, useTheme } from "@mui/material";
 
 //Components
 import { AppBarDesktop } from "../components/appBar/appBarDesktop"
@@ -7,11 +10,11 @@ import { AppBarMobile } from "../components/appBar/appBarMobile";
 import { BottomNav } from "../components/bottomNav/bottomNav";
 import { Footer } from "../components/footer/footer";
 
-// Context
-import { MatchesContext } from "../context/matchesContext";
-
 export const ApplicationBar = () => {
-    const { matches } = useContext( MatchesContext);
+
+    const theme = useTheme();
+    const matches = useMediaQuery( theme.breakpoints.down('md'));
+
     return (
         <>
             { matches ? 
