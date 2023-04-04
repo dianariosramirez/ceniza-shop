@@ -1,40 +1,66 @@
 import React from 'react';
 
 // MUI components
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import { Button, ButtonGroup, Container, Divider, IconButton, List, ListItem, ListItemButton, ListItemSecondaryAction, ListItemText, Stack, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
+import { Box } from '@mui/system';
+import { Add, Delete, Remove } from '@mui/icons-material';
 
 // Resources
 import { tizanas } from '../../resources/productsData';
-import { Box } from '@mui/system';
+
+
 
 export const ShoppingList = () => {
     return (
-        <TableContainer component={Paper}>
-            <Table>
-                <TableBody>
-                    { tizanas.map( tizana => (
-                        <TableRow key={ tizana.id }>
-                            <TableCell>
+        <List sx={{ width: '100%'}}>
+            {
+                tizanas.map( tizana => {
+                    return (
+                        <>
+                        <ListItem>
+                            <Container 
+                                sx={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "space-between"
+                                }}
+                            >
                                 <Box 
                                     component="img" 
                                     src={tizana.image}
-                                    sx={{
-                                        width:"auto",
-                                        height:"200px"
-                                    }} 
-                                />
-                            </TableCell>
-                            <TableCell>
-                                <Typography>{tizana.name}</Typography>
-                            </TableCell>
-                            <TableCell>
-                                <Typography>{tizana.price}</Typography>
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+                                    width="200px"                               
+                                />   
+                                <Stack>
+                                    <Typography>
+                                        {tizana.name}
+                                    </Typography>
+                                    <ToggleButtonGroup 
+                                        size='small'
+                                    >
+                                        <ToggleButton>
+                                            <Remove/>
+                                        </ToggleButton>
+                                        <ToggleButton disabled>
+                                            2
+                                        </ToggleButton>
+                                        <ToggleButton>
+                                            <Add/>
+                                        </ToggleButton>
+                                    </ToggleButtonGroup>
+                                </Stack>
+                                <Typography>
+                                    {tizana.price}
+                                </Typography>
+                            </Container>                              
+                        </ListItem>
+                        <Divider />
+                        </>
 
-        </TableContainer>
+                    )
+                })
+            }
+
+        </List>
+        
     ) 
 }

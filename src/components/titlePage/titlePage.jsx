@@ -12,7 +12,7 @@ export const TitlePage = ( {namePage} ) => {
     <Stack mb={4}>
         <Divider />
         <Typography 
-            variant={ matches ? "h4" : "h3" }
+            variant={ matches ? "h5" : "h4" }
             textAlign="center"
             m={1}
         >
