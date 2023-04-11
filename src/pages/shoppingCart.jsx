@@ -2,7 +2,7 @@ import React from "react";
 
 // MUI components
 import { Box } from "@mui/system";
-import {Button, Card, CardActions, CardContent, Divider, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Button, Card, CardActions, CardContent, Divider, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
 // Components
@@ -12,8 +12,6 @@ import { ShoppingList } from "../components/shoppingList/ShoppingList";
 
 
 export const ShoppingCart = () => {
-    const theme = useTheme();
-    const matches = useMediaQuery( theme.breakpoints.down('md'));
     return(
         <Box m={3}>
             <TitlePage namePage={"Carrito de compra"}/>

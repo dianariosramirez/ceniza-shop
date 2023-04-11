@@ -3,7 +3,7 @@ import React from 'react';
 // MUI components
 import { Container, Divider, List, ListItem, Stack, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
 import { Box } from '@mui/system';
-import { Add, Delete, Remove } from '@mui/icons-material';
+import { Add, Remove } from '@mui/icons-material';
 
 // Resources
 import { tizanas } from '../../resources/productsData';

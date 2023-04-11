@@ -1,13 +1,20 @@
-import React from 'react'
+import React from 'react';
 
 // Form
 import { useFormik } from 'formik';
-import { initialValues, onSubmit, validationSchemaProv as validationSchema } from '../../resources/helpers/formikHelper';
+import { initialValues, validationSchemaRegister as validationSchema } from '../../resources/helpers/formikHelper';
 
 // MUI components
 import { Box, Button, Container, TextField, Typography } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
-export const SignIn = () => {
+export const RegisterForm = () => {
+
+  const onSubmit = ( values, {resetForm} ) => {
+    localStorage.setItem('isLogged', 'true');
+    console.log( values );
+    resetForm( { values: '' } );
+  }
 
   const formik = useFormik({
     initialValues,
@@ -31,12 +38,25 @@ export const SignIn = () => {
         onSubmit={handleSubmit}
         sx={{
           padding: "30px",
-          '& > :not(style)': { mb: 5},
+          '& > :not(style)': { mb: 2},
         }}
       >    
         <Typography variant="h4">
-          Ingresar
+          Registro
         </Typography>
+
+        <TextField
+          fullWidth
+          variant="outlined"
+          label="Nombre"
+          name="name"
+          onChange={handleChange}
+          { ... getFieldProps('name') }
+          helperText={
+            errors.name && touched.name ? `${errors.name}` : null
+          }
+          type="text"
+        />
 
         <TextField
           fullWidth
@@ -63,22 +83,21 @@ export const SignIn = () => {
           }
           type="password"
         />
-        <>
-          <Button 
-            fullWidth
-            variant="contained" 
-            type="submit" 
-            disabled={!(isValid && dirty)}
-          >
-            Continuar
-          </Button>       
-          <Typography textAlign="end" color="primary">
-            Crear cuenta
-          </Typography>
-        </>       
-
+        <Button 
+          fullWidth
+          variant="contained" 
+          type="submit" 
+          disabled={!(isValid && dirty)}
+        >
+          Continuar
+        </Button>     
+        <NavLink to="../signin">
+          <Typography textAlign="end" color="primary" >
+            Ya tengo una cuenta
+          </Typography>          
+        </NavLink>  
       </Box>
     </Container>
-    
+
   )
 }

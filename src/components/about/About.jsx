@@ -14,7 +14,7 @@ export const About = () => {
             <Grid container spacing={1}>
                 <Grid 
                     xs={12} 
-                    md={6}           
+                    md={5}           
                     sx={ theme => ( {
                         display: 'flex', 
                         margin: '10px',
@@ -42,7 +42,7 @@ export const About = () => {
                 </Grid>
                 <Grid 
                     xs={12} 
-                    md={6}
+                    md={5}
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',
