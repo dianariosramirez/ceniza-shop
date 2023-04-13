@@ -20,6 +20,7 @@ import { accesorios, paquetes, tizanas } from './resources/productsData';
 
 // Constants
 import { REPO_BASE_NAME } from './commons/constants';
+import { Product } from './pages/product';
 
 
 
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
       {
         path: "product_tizanas",
         element: <Tizanas productData={tizanas}/>,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "product_tizanas/:productId",
+        element: <Product/>,
         errorElement: <ErrorPage />,
       },
       {

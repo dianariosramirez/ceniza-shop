@@ -17,46 +17,79 @@ import cupGreen from "./images/prod-cupgreen.png";
 
 export const tizanas = [
     {
-        id: 1,
-        name: 'Recuérdame',
-        price: '$9.99',
+        id: "recuerdame",
+        name: "Recuérdame",
+        price: `$${169}.00`,
         image: recuerdame,
+        type: "Tizana de temporada",
+        info: `Ingredientes: Manzana, piña, 
+            guayaba, tejocote, mandarina, pasas,
+            flor de cempasúchil, canela.`,
+        capacity: "12 tazas de 240 ml"
     },
     {
-        id: 2,
+        id: "hakuna-matata",
         name: 'Hakuna Matata',
-        price: '$9.99',
+        price: `$${140}.00`,
         image: hakuna,
+        type: "Tizana frutal",
+        info: `Ingredientes: Piña, manzana, mango,
+            maracuyá, pétalos de rosa`,
+        capacity: "12 tazas de 240 ml"
     },
     {
-        id: 3,
+        id: "atardecer",
         name: 'Atardecer',
-        price: '$9.99',
+        price: `$${149}.00`,
         image: atardecer,
+        type: "Tizana frutal",
+        info: `Ingredientes: Manzana, jamaica, canela,
+            pasas, fresas, arándanos, bugambilia,
+            almendras, lavanda`,
+        capacity: "12 tazas de 240 ml"
     },
     {
-        id: 4,
+        id: "raiz",
         name: 'Raiz',
-        price: '$9.99',
+        price: `$${135}.00`,
         image: raiz,
+        type: "Tizana frutal",
+        info: `Ingredientes: Piña, manzana, guayaba,
+            naranja, jengibre, nuez, cáscara de naranja,
+            pétalos de rosa.`,
+        capacity: "12 tazas de 240 ml"
     },
     {
-        id: 5,
+        id: "ocaso",
         name: 'Ocaso',
-        price: '$9.99',
+        price: `$${98}.00`,
         image: ocaso,
+        type: "Tizana frutal",
+        info: `Ingredientes: Bugambilia, cáscaras de cítricos,
+            hierbabuena, cedrón, fresa, cáscara de mango, 
+            lavanda, jengibre.`,
+        capacity: "15 tazas de 240 ml"
     },
     {
-        id: 6,
+        id: "oasis",
         name: 'Oasis',
-        price: '$9.99',
+        price: `$${85}.00`,
         image: oasis,
+        type: "Tizana herbal",
+        info: `Ingredientes: Hoja de limón, bugambilia,
+            eneldo, cáscara de naranja, guayaba, hojas de guayaba.`,
+        capacity: "15 tazas de 240 ml"
     },
     {
-        id: 7,
+        id: "dias-rosas",
         name: 'Días rosas',
-        price: '$9.99',
+        price: `$${90}.00`,
         image: dias,
+        type: "Tizana de temporada",
+        info: `Ingredientes: Eneldo, naranja, cáscara de 
+            naranja, jamaica, pericón, cúrcuma, pimienta negra,
+            orégano de monte.`,
+        capacity: "15 tazas de 240 ml"
     }
 ]
 
@@ -64,15 +97,15 @@ export const tizanas = [
 
 export const paquetes = [
     {
-        id: 8,
+        id: "kit-navideño",
         name: 'Kit navideño',
-        price: '$9.99',
+        price: `$${9}.00`,
         image: paquete1,
     },
     {
-        id: 9,
+        id: "kit-2",
         name: 'Kit 2',
-        price: '$9.99',
+        price: `$${9}.00`,
         image: paquete2,
     }
 ]
@@ -81,21 +114,21 @@ export const paquetes = [
 
 export const accesorios = [
     {
-        id: 10,
+        id: "vaso-meowblack",
         name: 'Vaso Meow Black',
-        price: '$9.99',
+        price: `$${9}.00`,
         image: cupCat,
     },
     {
-        id: 11,
+        id: "vaso-meow",
         name: 'Vaso Meow',
-        price: '$9.99',
+        price: `$${9}.00`,
         image: cupCat2,
     },
     {
-        id: 12,
-        name: 'Vaso Nature',
-        price: '$9.99',
+        id: "vaso-green",
+        name: "Vaso Green",
+        price: `$${9}.00`,
         image: cupGreen,
     },
 ]

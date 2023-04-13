@@ -21,10 +21,10 @@ export const ProductCard = ({ name, price, imageUrl }) => {
   return (
     <Card
         sx={{
-            transition: "0.2s",
-            "&:hover": {
-                transform:"scale(1.05)"
-            }
+          transition: "0.2s",
+          "&:hover": {
+              transform:"scale(1.05)"
+          }
         }}
     >
       <CardMedia
