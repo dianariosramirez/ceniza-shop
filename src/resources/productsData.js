@@ -1,18 +1,3 @@
-// Images
-import raiz from "./images/raiz-11.png";
-import recuerdame from "./images/recuerdame-2.png";
-import hakuna from "./images/hm-1.png";
-import atardecer from "./images/atardecer-1.png";
-import ocaso from "./images/ocaso1.png";
-import oasis from "./images/oasis-1.png";
-import dias from "./images/diasrosas-1.png"
-import paquete1 from "./images/paq1.png";
-import paquete2 from "./images/paq1-1.png";
-import cupCat from "./images/prod-cupcat.png";
-import cupCat2 from "./images/prod-cupcat2.png";
-import cupGreen from "./images/prod-cupgreen.png";
-
-
 // Tizanas data
 
 export const tizanas = [
@@ -20,7 +5,7 @@ export const tizanas = [
         id: "recuerdame",
         name: "Recuérdame",
         price: `$${169}.00`,
-        image: recuerdame,
+        imageURL: 'https://i.ibb.co/dcw8v2y/recuerdame-2.png',
         type: "Tizana de temporada",
         info: `Ingredientes: Manzana, piña, 
             guayaba, tejocote, mandarina, pasas,
@@ -31,7 +16,7 @@ export const tizanas = [
         id: "hakuna-matata",
         name: 'Hakuna Matata',
         price: `$${140}.00`,
-        image: hakuna,
+        imageURL: 'https://i.ibb.co/mS4dJcZ/hm-1.png',
         type: "Tizana frutal",
         info: `Ingredientes: Piña, manzana, mango,
             maracuyá, pétalos de rosa`,
@@ -41,7 +26,7 @@ export const tizanas = [
         id: "atardecer",
         name: 'Atardecer',
         price: `$${149}.00`,
-        image: atardecer,
+        imageURL: 'https://i.ibb.co/31d5fLt/atardecer-1.png',
         type: "Tizana frutal",
         info: `Ingredientes: Manzana, jamaica, canela,
             pasas, fresas, arándanos, bugambilia,
@@ -52,7 +37,7 @@ export const tizanas = [
         id: "raiz",
         name: 'Raiz',
         price: `$${135}.00`,
-        image: raiz,
+        imageURL: 'https://i.ibb.co/1RkJ6C2/raiz1.png',
         type: "Tizana frutal",
         info: `Ingredientes: Piña, manzana, guayaba,
             naranja, jengibre, nuez, cáscara de naranja,
@@ -63,7 +48,7 @@ export const tizanas = [
         id: "ocaso",
         name: 'Ocaso',
         price: `$${98}.00`,
-        image: ocaso,
+        imageURL: 'https://i.ibb.co/N9xPhCb/ocaso1.png',
         type: "Tizana frutal",
         info: `Ingredientes: Bugambilia, cáscaras de cítricos,
             hierbabuena, cedrón, fresa, cáscara de mango, 
@@ -74,7 +59,7 @@ export const tizanas = [
         id: "oasis",
         name: 'Oasis',
         price: `$${85}.00`,
-        image: oasis,
+        imageURL: 'https://i.ibb.co/CHy3FZM/oasis-1.png',
         type: "Tizana herbal",
         info: `Ingredientes: Hoja de limón, bugambilia,
             eneldo, cáscara de naranja, guayaba, hojas de guayaba.`,
@@ -84,7 +69,7 @@ export const tizanas = [
         id: "dias-rosas",
         name: 'Días rosas',
         price: `$${90}.00`,
-        image: dias,
+        imageURL: 'https://i.ibb.co/ckdQvTS/diasrosas-1.png',
         type: "Tizana de temporada",
         info: `Ingredientes: Eneldo, naranja, cáscara de 
             naranja, jamaica, pericón, cúrcuma, pimienta negra,
@@ -99,14 +84,30 @@ export const paquetes = [
     {
         id: "kit-navideño",
         name: 'Kit navideño',
-        price: `$${9}.00`,
-        image: paquete1,
+        price: `$${390}.00`,
+        imageURL: 'https://i.ibb.co/JKqHwxw/paq1.png',
+        type: "Edición especial: Navidad",
+        info: `Incluye: \n
+                ⁘ 1 tisana frutal en bolsa de 60 g. \n
+                ⁘ 1 tisana frutal en frasco de vidrio de 84 g. \n
+                ⁘ 1 tarro de miel.\n
+                ⁘ 6 galletas de jengibre. \n`,
+        capacity: ""
     },
     {
         id: "kit-2",
-        name: 'Kit 2',
-        price: `$${9}.00`,
-        image: paquete2,
+        name: 'Kit Palma Navideña',
+        price: `$${559}.00`,
+        imageURL: 'https://i.ibb.co/4gYyZjK/paq1-1.png',
+        type: "Edición especial: Navidad",
+        info: `Incluye: \n
+                ⁘ Cajita Navideña de palma natural. \n
+                ⁘ 1 tisana de 100 gramos. \n
+                ⁘ 1 Tarro de miel 50 gramos.\n
+                ⁘ 1 Granola de 300 gramos. \n
+                ⁘ 2 galletas navideñas \n
+                ⁘ 1 Sahumerio. \n`,
+        capacity: ""
     }
 ]
 
@@ -117,18 +118,18 @@ export const accesorios = [
         id: "vaso-meowblack",
         name: 'Vaso Meow Black',
         price: `$${9}.00`,
-        image: cupCat,
+        imageURL: 'https://i.ibb.co/6wyjh1n/prod-cupcat.png',
     },
     {
         id: "vaso-meow",
         name: 'Vaso Meow',
         price: `$${9}.00`,
-        image: cupCat2,
+        imageURL: 'https://i.ibb.co/MVXMcjn/prod-cupcat2.png',
     },
     {
         id: "vaso-green",
         name: "Vaso Green",
         price: `$${9}.00`,
-        image: cupGreen,
+        imageURL: 'https://i.ibb.co/qj4YNcf/prod-cupgreen.png',
     },
 ]

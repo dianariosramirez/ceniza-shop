@@ -3,20 +3,17 @@ import { createBrowserRouter } from 'react-router-dom';
 
 // Pages
 import { ApplicationBar } from './pages/navigationBar';
-import { Tizanas } from './pages/tizanas';
-import { Paquetes } from './pages/paquetes';
-import { ErrorPage } from './errorPage';
+import { TizanasPage } from './pages/TizanasPage/TizanasPage';
+import { PaquetesPage } from './pages/PaquetesPage/paquetes';
+import { NotFoundPage } from './pages/NotFundPage/NotFoundPage';
 import { Home } from './pages/home';
-import { Accesorios } from './pages/accesorios';
+import { AccesoriosPage } from './pages/AccesoriosPage/accesorios';
 import { ShoppingCart } from './pages/shoppingCart';
-import { Favorites } from './pages/favorites'
+import { Favorites } from './pages/FavoritesPage/favorites'
 import { Profile } from './pages/profile';
 import { Register } from './pages/register';
 import { SignIn } from './pages/signIn';
 import { SecureRoute } from './components/SecureRoute/SecureRoute';
-
-//Resources
-import { accesorios, paquetes, tizanas } from './resources/productsData';
 
 // Constants
 import { REPO_BASE_NAME } from './commons/constants';
@@ -28,7 +25,6 @@ const router = createBrowserRouter([
   {
     path: REPO_BASE_NAME,
     element: <ApplicationBar/>,
-    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -36,50 +32,55 @@ const router = createBrowserRouter([
       },
       {
         path: "product_tizanas",
-        element: <Tizanas productData={tizanas}/>,
-        errorElement: <ErrorPage />,
+        element: <TizanasPage/>
       },
       {
         path: "product_tizanas/:productId",
-        element: <Product/>,
-        errorElement: <ErrorPage />,
+        element: <Product/>
       },
       {
         path: "product_paquetes",
-        element: <Paquetes productData={paquetes}/>,
-        errorElement: <ErrorPage />,
+        element: <PaquetesPage/>,
+      },
+      {
+        path: "product_paquetes/:productId",
+        element: <Product/>
       },
       {
         path: "product_accesorios",
-        element: <Accesorios productData={accesorios}/>,
-        errorElement: <ErrorPage />,
+        element: <AccesoriosPage/>
+      },
+      {
+        path: "product_accesorios/:productId",
+        element: <Product/>
       },
       {
         path: "shopping_cart",
-        element: <ShoppingCart />,
-        errorElement: <ErrorPage />,
+        element: <ShoppingCart />
       },
       {
         path: "favorites",
-        element: <Favorites />,
-        errorElement: <ErrorPage />,
+        element: <Favorites />
       },
       {
         path: "profile",
-        element: <SecureRoute>
-          <Profile/>
-        </SecureRoute>,
-        errorElement: <ErrorPage />,
+        element: (
+          <SecureRoute>
+            <Profile/>
+          </SecureRoute>
+        )
       },
       {
         path: "signin",
-        element: <SignIn />,
-        errorElement: <ErrorPage />,
+        element: <SignIn />
       },
       {
         path: "register",
-        element: <Register />,
-        errorElement: <ErrorPage />,
+        element: <Register />
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />
       }
     ],
   },

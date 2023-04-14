@@ -33,7 +33,7 @@ export const Product = () => {
         <Box 
           width='70%'
           component='img'
-          src={ productSelected.image }
+          src={ productSelected.imageURL }
         />
       </Grid>
       <Grid xs={12} md={6}>

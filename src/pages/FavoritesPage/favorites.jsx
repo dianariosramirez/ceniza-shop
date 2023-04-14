@@ -1,7 +1,7 @@
 import React from "react";
 
 // Components
-import { TitlePage } from "../components/titlePage/titlePage";
+import { TitlePage } from "../../components/titlePage/titlePage";
 
 export const Favorites = () => {
     return(

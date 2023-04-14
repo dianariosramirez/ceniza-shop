@@ -1,11 +1,13 @@
 import React, { useState } from 'react'; 
+import { Link } from 'react-router-dom';
 
 // MUI components
 import { Button, Card, CardContent, CardMedia, IconButton, Typography } from '@mui/material';
 import { AddShoppingCart, Favorite } from '@mui/icons-material';
 import { Stack } from '@mui/system';
 
-export const ProductCard = ({ name, price, imageUrl }) => {
+
+export const ProductCard = ({ name, price, imageUrl, productDetail }) => {
 
   const [favoriteMark, setFavoriteMark] = useState( "notFav" );
 
@@ -27,13 +29,16 @@ export const ProductCard = ({ name, price, imageUrl }) => {
           }
         }}
     >
-      <CardMedia
+      <Link to={ productDetail } underline="none">
+        <CardMedia
         component="img"
         alt="Product photo"
         height="40%"
         image={imageUrl}
         title={name}
-      />
+        />
+      </Link>
+     
       <CardContent sx={{ display: 'flex', justifyContent:'space-between'}}>
         <Stack>
           <Typography variant="h5" component="h2">

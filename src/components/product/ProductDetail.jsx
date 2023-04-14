@@ -1,12 +1,12 @@
 import React from 'react';
 
 //MUI components
-import { Box, Button, Divider, IconButton, Stack, Typography, capitalize } from '@mui/material';
+import { Box, Button, Divider, IconButton, Stack, Typography} from '@mui/material';
 import { Favorite } from '@mui/icons-material';
 
 export const ProductDetail = ({ name, type, price, info, capacity }) => {
   return (
-    <Stack margin={9}>
+    <Stack margin={10}>
         <Typography 
         variant='h4' 
         sx={ theme => ({
