@@ -2,33 +2,33 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 // Pages
-import { ApplicationBar } from './pages/navigationBar';
+import { NavigationPage } from './pages/NavigationPage/NavigationPage';
 import { TizanasPage } from './pages/TizanasPage/TizanasPage';
 import { PaquetesPage } from './pages/PaquetesPage/paquetes';
 import { NotFoundPage } from './pages/NotFundPage/NotFoundPage';
-import { Home } from './pages/home';
+import { HomePage } from './pages/HomePage/HomePage';
 import { AccesoriosPage } from './pages/AccesoriosPage/accesorios';
-import { ShoppingCart } from './pages/shoppingCart';
+import { ShoppingCartPage } from './pages/ShoppingCartPage/ShoppingCartPage';
 import { Favorites } from './pages/FavoritesPage/favorites'
-import { Profile } from './pages/profile';
-import { Register } from './pages/register';
-import { SignIn } from './pages/signIn';
+import { ProfilePage } from './pages/ProfilePage/ProfilePage';
+import { RegisterPage } from './pages/RegisterPage/RegisterPage';
+import { SignInPage } from './pages/SignInPage/SignInPage';
 import { SecureRoute } from './components/SecureRoute/SecureRoute';
+import { ProductDetailPage } from './pages/ProductDetailPage/ProductDetailPage';
 
 // Constants
 import { REPO_BASE_NAME } from './commons/constants';
-import { Product } from './pages/product';
 
 
 
 const router = createBrowserRouter([
   {
     path: REPO_BASE_NAME,
-    element: <ApplicationBar/>,
+    element: <NavigationPage/>,
     children: [
       {
         index: true,
-        element: <Home />
+        element: <HomePage />
       },
       {
         path: "product_tizanas",
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: "product_tizanas/:productId",
-        element: <Product/>
+        element: <ProductDetailPage/>
       },
       {
         path: "product_paquetes",
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: "product_paquetes/:productId",
-        element: <Product/>
+        element: <ProductDetailPage/>
       },
       {
         path: "product_accesorios",
@@ -52,11 +52,11 @@ const router = createBrowserRouter([
       },
       {
         path: "product_accesorios/:productId",
-        element: <Product/>
+        element: <ProductDetailPage/>
       },
       {
         path: "shopping_cart",
-        element: <ShoppingCart />
+        element: <ShoppingCartPage />
       },
       {
         path: "favorites",
@@ -66,17 +66,17 @@ const router = createBrowserRouter([
         path: "profile",
         element: (
           <SecureRoute>
-            <Profile/>
+            <ProfilePage/>
           </SecureRoute>
         )
       },
       {
         path: "signin",
-        element: <SignIn />
+        element: <SignInPage />
       },
       {
         path: "register",
-        element: <Register />
+        element: <RegisterPage />
       },
       {
         path: "*",

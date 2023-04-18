@@ -5,12 +5,12 @@ import { Outlet } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
 
 //Components
-import { AppBarDesktop } from "../components/appBar/appBarDesktop"
-import { AppBarMobile } from "../components/appBar/appBarMobile";
-import { BottomNav } from "../components/bottomNav/bottomNav";
-import { Footer } from "../components/footer/footer";
+import { AppBarDesktop } from "../../components/AppBar/AppBarDesktop"
+import { AppBarMobile } from "../../components/AppBar/AppBarMobile";
+import { BottomNav } from "../../components/BottomNav/BottomNav";
+import { Footer } from "../../components/Footer/Footer";
 
-export const ApplicationBar = () => {
+export const NavigationPage = () => {
 
     const matches = useMediaQuery( theme => theme.breakpoints.down('md'));
 

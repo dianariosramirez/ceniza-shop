@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-//MUI components
-import { Grid } from "@mui/material";
+// MUI components
 import { Box } from "@mui/system";
+import { Grid } from "@mui/material";
 
 // Components
 import { ProductCard } from "../../components/ProductCard/ProductCard";
@@ -10,23 +10,25 @@ import { TitlePage } from "../../components/TitlePage/TitlePage";
 import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
 
 // Services
-import { TizanasService } from "./services/tizanas.service";
+import { AccesoriosService } from "./services/accesorios.service";
 
 
-export const TizanasPage = () => {
-    const [ tizanas, setTizanas ] = useState([]);
-    const [loading, setLoading] = useState(true);
+
+export const AccesoriosPage = () => {
+
+    const [ accesorios, setAccesorios ] = useState([]);
+    const [loading, setLoading] = useState(true);   
 
     useEffect( () => {
-        TizanasService.getTizanas().then( tizanas => {
-            setTizanas( tizanas );
+        AccesoriosService.getAccesorios().then( accesorios => {
+            setAccesorios( accesorios );
             setLoading( false );
-        });
+        })
     }, [] )
-    
+
     return(  
         <Box m={3}>
-            <TitlePage namePage={"Tizanas"}/>
+            <TitlePage namePage={"Accesorios"}/>
             <Grid container spacing={4}>
             {
                 loading === true 
@@ -40,20 +42,19 @@ export const TizanasPage = () => {
                     })
                 )
                 : (
-                    tizanas.map( tizana => {
+                    accesorios.map( accesorio => {
                     return (
-                        <Grid item xs={6} md={3} key={tizana.id}>
+                        <Grid item xs={6} md={3} key={accesorio.id}>
                             <ProductCard
-                                name={tizana.name}
-                                price={tizana.price}
-                                imageUrl= {tizana.imageURL}
-                                productDetail={`../product_tizanas/${tizana.id}`}
+                                name={accesorio.name}
+                                price={accesorio.price}
+                                imageUrl= {accesorio.imageURL}
+                                productDetail={`../product_accesorios/${accesorio.id}`}
                             />  
                         </Grid>
                     )
                     })
                 )
-                
             }
             </Grid>   
         </Box>

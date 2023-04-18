@@ -6,12 +6,12 @@ import { Button, Card, CardActions, CardContent, Divider, Typography } from "@mu
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
 // Components
-import { TitlePage } from "../components/titlePage/titlePage";
-import { ShoppingList } from "../components/shoppingList/ShoppingList";
+import { TitlePage } from "../../components/titlePage/titlePage";
+import { ShoppingList } from "../../components/shoppingList/ShoppingList";
 
 
 
-export const ShoppingCart = () => {
+export const ShoppingCartPage = () => {
     return(
         <Box m={3}>
             <TitlePage namePage={"Carrito de compra"}/>

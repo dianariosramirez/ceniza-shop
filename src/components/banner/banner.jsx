@@ -2,7 +2,7 @@ import React from 'react';
 import { sliderToCarrusel } from './bannerSlider'
 
 // Components
-import { Item } from './item';
+import { Item } from './Item';
 
 // MUI components
 import Carousel from 'react-material-ui-carousel'

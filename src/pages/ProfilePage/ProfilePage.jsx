@@ -1,14 +1,13 @@
 import React from "react";
 
 // Components
-import { TitlePage } from "../components/titlePage/titlePage";
+import { TitlePage } from "../../components/titlePage/titlePage";
 
 // MUI components
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
-import { Avatar, Box, Button, Card, Chip, Divider, IconButton, List, ListItem, Stack, Switch, Typography } from "@mui/material";
-import { Edit, LocationOn } from "@mui/icons-material";
+import { Avatar, Box, Button, Divider, List, ListItem, Stack, Typography } from "@mui/material";
 
-export const Profile = () => {
+export const ProfilePage = () => {
     return(
         <>
             <TitlePage namePage={"Mi perfil"}/>

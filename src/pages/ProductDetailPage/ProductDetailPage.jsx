@@ -2,16 +2,16 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 // Resources
-import { tizanas, paquetes, accesorios } from '../resources/productsData';
+import { tizanas, paquetes, accesorios } from '../../resources/productsData';
 
 // Components
-import { ProductDetail } from '../components/product/ProductDetail';
+import { ProductDetail } from '../../components/ProductDetail/ProductDetail';
 
 //MUI components
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import { Box } from '@mui/material';
 
-export const Product = () => {
+export const ProductDetailPage = () => {
 
   const products = tizanas.concat( paquetes, accesorios);
   const { productId } = useParams();

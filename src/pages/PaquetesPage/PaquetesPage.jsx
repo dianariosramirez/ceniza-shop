@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-//MUI components
-import { Grid } from "@mui/material";
+// MUI components
 import { Box } from "@mui/system";
+import { Grid } from "@mui/material";
 
 // Components
 import { ProductCard } from "../../components/ProductCard/ProductCard";
@@ -10,23 +10,29 @@ import { TitlePage } from "../../components/TitlePage/TitlePage";
 import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
 
 // Services
-import { TizanasService } from "./services/tizanas.service";
+import { PaquetesService } from "./services/paquetes.service";
 
 
-export const TizanasPage = () => {
-    const [ tizanas, setTizanas ] = useState([]);
+
+export const PaquetesPage = () => {
+
+    const [ paquetes, setPaquetes ] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect( () => {
-        TizanasService.getTizanas().then( tizanas => {
-            setTizanas( tizanas );
+        PaquetesService.getPaquetes().then( paquetes => {
+            setPaquetes( paquetes );
             setLoading( false );
-        });
+        })
     }, [] )
-    
+
     return(  
-        <Box m={3}>
-            <TitlePage namePage={"Tizanas"}/>
+        <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            margin: '20px'
+        }}>
+            <TitlePage namePage={"Paquetes"}/>
             <Grid container spacing={4}>
             {
                 loading === true 
@@ -40,20 +46,19 @@ export const TizanasPage = () => {
                     })
                 )
                 : (
-                    tizanas.map( tizana => {
+                    paquetes.map( paquete => {
                     return (
-                        <Grid item xs={6} md={3} key={tizana.id}>
+                        <Grid item xs={6} md={3} key={paquete.id}>
                             <ProductCard
-                                name={tizana.name}
-                                price={tizana.price}
-                                imageUrl= {tizana.imageURL}
-                                productDetail={`../product_tizanas/${tizana.id}`}
+                                name={paquete.name}
+                                price={paquete.price}
+                                imageUrl= {paquete.imageURL}
+                                productDetail={`../product_paquetes/${paquete.id}`}
                             />  
                         </Grid>
                     )
                     })
                 )
-                
             }
             </Grid>   
         </Box>
