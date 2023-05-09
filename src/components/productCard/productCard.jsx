@@ -6,13 +6,15 @@ import { Button, Card, CardContent, CardMedia, IconButton, Typography } from '@m
 import { AddShoppingCart, Favorite } from '@mui/icons-material';
 import { Stack } from '@mui/system';
 
+// Store
+import { useShoppingCartStore } from '../../store/shoppingCartStore';
 
-export const ProductCard = ({ name, price, imageUrl, productDetail }) => {
+export const ProductCard = ({ name, price, imageURL, productDetail }) => {
 
-  const [favoriteMark, setFavoriteMark] = useState( "notFav" );
+  const [ favoriteMark, setFavoriteMark] = useState( "notFav" );
+  const { addToCart } = useShoppingCartStore();
 
   const onClickFav = () => {
-    console.log( favoriteMark )
     if ( favoriteMark === "notFav" ) {
       setFavoriteMark( 'isFav' );
     } else {
@@ -34,7 +36,7 @@ export const ProductCard = ({ name, price, imageUrl, productDetail }) => {
         component="img"
         alt="Product photo"
         height="40%"
-        image={imageUrl}
+        image={imageURL}
         title={name}
         />
       </Link>
@@ -52,6 +54,7 @@ export const ProductCard = ({ name, price, imageUrl, productDetail }) => {
           <Button 
             startIcon={<AddShoppingCart/>} 
             size="small"
+            onClick={() => addToCart({ name, price, imageURL, productDetail })}
           >
             Añadir
           </Button>
@@ -64,7 +67,7 @@ export const ProductCard = ({ name, price, imageUrl, productDetail }) => {
             Añadir
           </LoadingButton> */}
           <IconButton 
-            onClick={onClickFav} 
+            onClick={ onClickFav } 
             color= { favoriteMark === "isFav" ? "primary" : "gray"}
           >
             <Favorite/>

@@ -46,7 +46,7 @@ export const TizanasPage = () => {
                             <ProductCard
                                 name={tizana.name}
                                 price={tizana.price}
-                                imageUrl= {tizana.imageURL}
+                                imageURL= {tizana.imageURL}
                                 productDetail={`../product_tizanas/${tizana.id}`}
                             />  
                         </Grid>

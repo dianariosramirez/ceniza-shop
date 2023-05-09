@@ -4,12 +4,12 @@ import { createBrowserRouter } from 'react-router-dom';
 // Pages
 import { NavigationPage } from './pages/NavigationPage/NavigationPage';
 import { TizanasPage } from './pages/TizanasPage/TizanasPage';
-import { PaquetesPage } from './pages/PaquetesPage/paquetes';
+import { PaquetesPage } from './pages/PaquetesPage/PaquetesPage';
 import { NotFoundPage } from './pages/NotFundPage/NotFoundPage';
 import { HomePage } from './pages/HomePage/HomePage';
-import { AccesoriosPage } from './pages/AccesoriosPage/accesorios';
+import { AccesoriosPage } from './pages/AccesoriosPage/AccesoriosPage';
 import { ShoppingCartPage } from './pages/ShoppingCartPage/ShoppingCartPage';
-import { Favorites } from './pages/FavoritesPage/favorites'
+import { FavoritesPage } from './pages/FavoritesPage/FavoritesPage'
 import { ProfilePage } from './pages/ProfilePage/ProfilePage';
 import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 import { SignInPage } from './pages/SignInPage/SignInPage';
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
       },
       {
         path: "favorites",
-        element: <Favorites />
+        element: <FavoritesPage />
       },
       {
         path: "profile",

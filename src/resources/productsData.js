@@ -10,7 +10,8 @@ export const tizanas = [
         info: `Ingredientes: Manzana, piña, 
             guayaba, tejocote, mandarina, pasas,
             flor de cempasúchil, canela.`,
-        capacity: "12 tazas de 240 ml"
+        capacity: "12 tazas de 240 ml",
+        favorite: false
     },
     {
         id: "hakuna-matata",
@@ -20,7 +21,8 @@ export const tizanas = [
         type: "Tizana frutal",
         info: `Ingredientes: Piña, manzana, mango,
             maracuyá, pétalos de rosa`,
-        capacity: "12 tazas de 240 ml"
+        capacity: "12 tazas de 240 ml",
+        favorite: false
     },
     {
         id: "atardecer",
@@ -31,7 +33,8 @@ export const tizanas = [
         info: `Ingredientes: Manzana, jamaica, canela,
             pasas, fresas, arándanos, bugambilia,
             almendras, lavanda`,
-        capacity: "12 tazas de 240 ml"
+        capacity: "12 tazas de 240 ml",
+        favorite: false
     },
     {
         id: "raiz",
@@ -42,7 +45,8 @@ export const tizanas = [
         info: `Ingredientes: Piña, manzana, guayaba,
             naranja, jengibre, nuez, cáscara de naranja,
             pétalos de rosa.`,
-        capacity: "12 tazas de 240 ml"
+        capacity: "12 tazas de 240 ml",
+        favorite: false
     },
     {
         id: "ocaso",
@@ -53,7 +57,8 @@ export const tizanas = [
         info: `Ingredientes: Bugambilia, cáscaras de cítricos,
             hierbabuena, cedrón, fresa, cáscara de mango, 
             lavanda, jengibre.`,
-        capacity: "15 tazas de 240 ml"
+        capacity: "15 tazas de 240 ml",
+        favorite: false
     },
     {
         id: "oasis",
@@ -63,7 +68,8 @@ export const tizanas = [
         type: "Tizana herbal",
         info: `Ingredientes: Hoja de limón, bugambilia,
             eneldo, cáscara de naranja, guayaba, hojas de guayaba.`,
-        capacity: "15 tazas de 240 ml"
+        capacity: "15 tazas de 240 ml",
+        favorite: false
     },
     {
         id: "dias-rosas",
@@ -74,7 +80,8 @@ export const tizanas = [
         info: `Ingredientes: Eneldo, naranja, cáscara de 
             naranja, jamaica, pericón, cúrcuma, pimienta negra,
             orégano de monte.`,
-        capacity: "15 tazas de 240 ml"
+        capacity: "15 tazas de 240 ml",
+        favorite: false
     }
 ]
 
@@ -92,11 +99,12 @@ export const paquetes = [
                 ⁘ 1 tisana frutal en frasco de vidrio de 84 g. \n
                 ⁘ 1 tarro de miel.\n
                 ⁘ 6 galletas de jengibre. \n`,
-        capacity: ""
+        capacity: "",
+        favorite: false
     },
     {
         id: "kit-2",
-        name: 'Kit Palma Navideña',
+        name: 'Kit Navidad 2',
         price: `$${559}.00`,
         imageURL: 'https://i.ibb.co/4gYyZjK/paq1-1.png',
         type: "Edición especial: Navidad",
@@ -107,7 +115,8 @@ export const paquetes = [
                 ⁘ 1 Granola de 300 gramos. \n
                 ⁘ 2 galletas navideñas \n
                 ⁘ 1 Sahumerio. \n`,
-        capacity: ""
+        capacity: "",
+        favorite: false
     }
 ]
 
@@ -117,19 +126,25 @@ export const accesorios = [
     {
         id: "vaso-meowblack",
         name: 'Vaso Meow Black',
-        price: `$${9}.00`,
+        price: `$${300}.00`,
         imageURL: 'https://i.ibb.co/6wyjh1n/prod-cupcat.png',
+        type: "Edición especial: Navidad",
+        info: '',
+        capacity: "525 ml",
+        favorite: false
     },
     {
         id: "vaso-meow",
         name: 'Vaso Meow',
-        price: `$${9}.00`,
+        price: `$${285}.00`,
         imageURL: 'https://i.ibb.co/MVXMcjn/prod-cupcat2.png',
+        favorite: false
     },
     {
         id: "vaso-green",
         name: "Vaso Green",
-        price: `$${9}.00`,
+        price: `$${295}.00`,
         imageURL: 'https://i.ibb.co/qj4YNcf/prod-cupgreen.png',
+        favorite: false
     },
 ]

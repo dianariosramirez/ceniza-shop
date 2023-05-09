@@ -6,12 +6,17 @@ import { Button, Card, CardActions, CardContent, Divider, Typography } from "@mu
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
 // Components
-import { TitlePage } from "../../components/titlePage/titlePage";
-import { ShoppingList } from "../../components/shoppingList/ShoppingList";
+import { TitlePage } from "../../components/TitlePage/TitlePage";
+import { ShoppingList } from "../../components/ShoppingList/ShoppingList";
 
+// Store
+import { useShoppingCartStore } from "../../store/shoppingCartStore";
 
 
 export const ShoppingCartPage = () => {
+    const { totalPrice } = useShoppingCartStore;
+    console.log( totalPrice );
+
     return(
         <Box m={3}>
             <TitlePage namePage={"Carrito de compra"}/>
@@ -27,7 +32,7 @@ export const ShoppingCartPage = () => {
                             </Typography>
                             <Divider/>
                             <Typography variant="h5" textAlign="end" mt={2}>
-                               $300.99 
+                               {totalPrice}
                             </Typography>
                         </CardContent>
                         <CardActions>

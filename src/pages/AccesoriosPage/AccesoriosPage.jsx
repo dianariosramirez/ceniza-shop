@@ -48,7 +48,7 @@ export const AccesoriosPage = () => {
                             <ProductCard
                                 name={accesorio.name}
                                 price={accesorio.price}
-                                imageUrl= {accesorio.imageURL}
+                                imageURL= {accesorio.imageURL}
                                 productDetail={`../product_accesorios/${accesorio.id}`}
                             />  
                         </Grid>

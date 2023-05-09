@@ -12,8 +12,6 @@ import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
 // Services
 import { PaquetesService } from "./services/paquetes.service";
 
-
-
 export const PaquetesPage = () => {
 
     const [ paquetes, setPaquetes ] = useState([]);
@@ -52,7 +50,7 @@ export const PaquetesPage = () => {
                             <ProductCard
                                 name={paquete.name}
                                 price={paquete.price}
-                                imageUrl= {paquete.imageURL}
+                                imageURL= {paquete.imageURL}
                                 productDetail={`../product_paquetes/${paquete.id}`}
                             />  
                         </Grid>
