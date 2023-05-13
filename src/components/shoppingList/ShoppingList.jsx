@@ -1,9 +1,8 @@
 import React from 'react';
 
 // MUI components
-import { Container, Divider, List, ListItem, Stack, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import { Container, Divider, List, ListItem, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import { Add, Remove } from '@mui/icons-material';
 
 // Store
 import { useShoppingCartStore } from '../../store/shoppingCartStore';
@@ -17,8 +16,8 @@ export const ShoppingList = () => {
             {
                 productsCart.map( product => {
                     return (
-                        <>
-                        <ListItem>
+                        <div key={product.name}>
+                        <ListItem >
                             <Container 
                                 sx={{
                                     display: "flex",
@@ -35,27 +34,14 @@ export const ShoppingList = () => {
                                     <Typography>
                                         {product.name}
                                     </Typography>
-                                    <ToggleButtonGroup 
-                                        size='small'
-                                    >
-                                        <ToggleButton>
-                                            <Remove/>
-                                        </ToggleButton>
-                                        <ToggleButton disabled>
-                                            2
-                                        </ToggleButton>
-                                        <ToggleButton>
-                                            <Add/>
-                                        </ToggleButton>
-                                    </ToggleButtonGroup>
                                 </Stack>
                                 <Typography>
-                                    {product.price}
+                                    {`$${product.price}.00`}
                                 </Typography>
                             </Container>                              
                         </ListItem>
                         <Divider />
-                        </>
+                        </div>
                     )
                 })
             }

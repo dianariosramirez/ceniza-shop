@@ -47,7 +47,7 @@ export const ProductCard = ({ name, price, imageURL, productDetail }) => {
             {name}
           </Typography>
           <Typography variant="body2" component="p" sx={{ color: 'purple' }}>
-            {price}
+            {`$${price}.00`}
           </Typography>
         </Stack>
         <Stack direction="row">

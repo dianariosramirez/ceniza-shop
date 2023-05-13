@@ -5,6 +5,6 @@ export const useShoppingCartStore = create( set => ({
     totalPrice: 0,
     addToCart: ( product ) => set( state => ({
         productsCart: [...state.productsCart, product],
-        totalPrice: state.totalPrice
+        totalPrice: state.totalPrice + product.price
     }))
 }))

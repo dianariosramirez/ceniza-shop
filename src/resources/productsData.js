@@ -4,7 +4,7 @@ export const tizanas = [
     {
         id: "recuerdame",
         name: "Recuérdame",
-        price: `$${169}.00`,
+        price: 169,
         imageURL: 'https://i.ibb.co/dcw8v2y/recuerdame-2.png',
         type: "Tizana de temporada",
         info: `Ingredientes: Manzana, piña, 
@@ -16,7 +16,7 @@ export const tizanas = [
     {
         id: "hakuna-matata",
         name: 'Hakuna Matata',
-        price: `$${140}.00`,
+        price: 140,
         imageURL: 'https://i.ibb.co/mS4dJcZ/hm-1.png',
         type: "Tizana frutal",
         info: `Ingredientes: Piña, manzana, mango,
@@ -27,7 +27,7 @@ export const tizanas = [
     {
         id: "atardecer",
         name: 'Atardecer',
-        price: `$${149}.00`,
+        price: 149,
         imageURL: 'https://i.ibb.co/31d5fLt/atardecer-1.png',
         type: "Tizana frutal",
         info: `Ingredientes: Manzana, jamaica, canela,
@@ -39,7 +39,7 @@ export const tizanas = [
     {
         id: "raiz",
         name: 'Raiz',
-        price: `$${135}.00`,
+        price: 135,
         imageURL: 'https://i.ibb.co/1RkJ6C2/raiz1.png',
         type: "Tizana frutal",
         info: `Ingredientes: Piña, manzana, guayaba,
@@ -51,7 +51,7 @@ export const tizanas = [
     {
         id: "ocaso",
         name: 'Ocaso',
-        price: `$${98}.00`,
+        price: 98,
         imageURL: 'https://i.ibb.co/N9xPhCb/ocaso1.png',
         type: "Tizana frutal",
         info: `Ingredientes: Bugambilia, cáscaras de cítricos,
@@ -63,7 +63,7 @@ export const tizanas = [
     {
         id: "oasis",
         name: 'Oasis',
-        price: `$${85}.00`,
+        price: 85,
         imageURL: 'https://i.ibb.co/CHy3FZM/oasis-1.png',
         type: "Tizana herbal",
         info: `Ingredientes: Hoja de limón, bugambilia,
@@ -74,7 +74,7 @@ export const tizanas = [
     {
         id: "dias-rosas",
         name: 'Días rosas',
-        price: `$${90}.00`,
+        price: 90,
         imageURL: 'https://i.ibb.co/ckdQvTS/diasrosas-1.png',
         type: "Tizana de temporada",
         info: `Ingredientes: Eneldo, naranja, cáscara de 
@@ -91,7 +91,7 @@ export const paquetes = [
     {
         id: "kit-navideño",
         name: 'Kit navideño',
-        price: `$${390}.00`,
+        price: 390,
         imageURL: 'https://i.ibb.co/JKqHwxw/paq1.png',
         type: "Edición especial: Navidad",
         info: `Incluye: \n
@@ -104,8 +104,8 @@ export const paquetes = [
     },
     {
         id: "kit-2",
-        name: 'Kit Navidad 2',
-        price: `$${559}.00`,
+        name: 'Kit Claus',
+        price: 559,
         imageURL: 'https://i.ibb.co/4gYyZjK/paq1-1.png',
         type: "Edición especial: Navidad",
         info: `Incluye: \n
@@ -126,7 +126,7 @@ export const accesorios = [
     {
         id: "vaso-meowblack",
         name: 'Vaso Meow Black',
-        price: `$${300}.00`,
+        price: 300,
         imageURL: 'https://i.ibb.co/6wyjh1n/prod-cupcat.png',
         type: "Edición especial: Navidad",
         info: '',
@@ -136,14 +136,14 @@ export const accesorios = [
     {
         id: "vaso-meow",
         name: 'Vaso Meow',
-        price: `$${285}.00`,
+        price: 285,
         imageURL: 'https://i.ibb.co/MVXMcjn/prod-cupcat2.png',
         favorite: false
     },
     {
         id: "vaso-green",
         name: "Vaso Green",
-        price: `$${295}.00`,
+        price: 295,
         imageURL: 'https://i.ibb.co/qj4YNcf/prod-cupgreen.png',
         favorite: false
     },

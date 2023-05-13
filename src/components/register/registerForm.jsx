@@ -2,18 +2,49 @@ import React from 'react';
 
 // Form
 import { useFormik } from 'formik';
-import { initialValues, validationSchemaRegister as validationSchema } from '../../resources/helpers/formikHelper';
+import { initialValuesToRegisterForm as initialValues,
+   validationSchemaRegister as validationSchema } 
+from '../../resources/helpers/formikHelper';
 
 // MUI components
 import { Box, Button, Container, TextField, Typography } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+
+// Config
+import { SERVER_URL } from '../../config';
+// Store
+import { useUserStore } from '../../store/user';
 
 export const RegisterForm = () => {
 
-  const onSubmit = ( values, {resetForm} ) => {
-    localStorage.setItem('isLogged', 'true');
-    console.log( values );
-    resetForm( { values: '' } );
+  const navigate = useNavigate();
+  const { userDataLogged } = useUserStore();
+
+  const onSubmit = ( values ) => {
+    fetch( `${SERVER_URL}/register`, {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify( {
+        email: values.email,
+        password: values.password,
+        name: values.name,
+        city: values.city,
+        state: values.state
+      })
+    })
+    .then( response => response.json() )
+    .then( user => {
+      if ( user ) {
+        localStorage.setItem('isLogged', 'true');
+        console.log( user );
+        userDataLogged( user );
+        navigate("../profile");
+
+      }
+    })
+    .catch( () => {
+      console.log( 'error' );
+    });
   }
 
   const formik = useFormik({
@@ -56,6 +87,30 @@ export const RegisterForm = () => {
             errors.name && touched.name ? `${errors.name}` : null
           }
           type="text"
+        />
+
+        <TextField
+          fullWidth
+          variant="outlined"
+          label="Ciudad"
+          name="city"
+          onChange={handleChange}
+          { ... getFieldProps('city') }
+          helperText={
+            errors.city && touched.city ? `${errors.city}` : null
+          }
+        />
+
+        <TextField
+          fullWidth
+          variant="outlined"
+          label="Estado"
+          name="state"
+          onChange={handleChange}
+          { ... getFieldProps('state') }
+          helperText={
+            errors.state && touched.state ? `${errors.state}` : null
+          }
         />
 
         <TextField

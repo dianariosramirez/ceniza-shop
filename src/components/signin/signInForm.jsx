@@ -2,19 +2,45 @@ import React from 'react'
 
 // Form
 import { useFormik } from 'formik';
-import { initialValues, validationSchemaSignIn as validationSchema } from '../../resources/helpers/formikHelper';
+import { initialValuesToSignInForm as initialValues, validationSchemaSignIn as validationSchema } from '../../resources/helpers/formikHelper';
+
+//Config
+import { SERVER_URL } from "../../config";
 
 // MUI components
 import { Box, Button, Container, TextField, Typography } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+
+//Store
+import { useUserStore } from '../../store/user';
 
 export const SignInForm = () => {
 
-  const onSubmit = ( values, {resetForm} ) => {
-    alert( 'Usuario aceptado' );
-    localStorage.setItem('isLogged', 'true');
-    console.log( values );
-    resetForm( { values: '' } );
+  const { userDataLogged } = useUserStore();
+
+  const navigate = useNavigate();
+
+  const onSubmit = ( values ) => {
+    fetch( `${SERVER_URL}/signin`, {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify( {
+        email: values.email,
+        password: values.password
+      })
+    })
+    .then( response => response.json() )
+    .then( user => {
+      if ( user.id ) {
+        localStorage.setItem('isLogged', 'true');
+        console.log( values );
+        userDataLogged( user );
+        navigate("../profile");
+      }
+    })
+    .catch( () => {
+      console.log( 'El usuario no existe' )
+    });  
   }
 
   const formik = useFormik({

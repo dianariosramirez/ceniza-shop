@@ -1,5 +1,8 @@
 import React from "react";
 
+//Routing
+import { useNavigate } from "react-router-dom";
+
 // Components
 import { TitlePage } from "../../components/titlePage/titlePage";
 
@@ -7,7 +10,21 @@ import { TitlePage } from "../../components/titlePage/titlePage";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { Avatar, Box, Button, Divider, List, ListItem, Stack, Typography } from "@mui/material";
 
+// Store
+import { useUserStore } from "../../store/user";
+
+
 export const ProfilePage = () => {
+
+    const { name, city, state } = useUserStore();
+    const navigate = useNavigate();
+
+    const onLogOut = () => {
+        localStorage.setItem('isLogged', 'false');
+        console.log('Chaus Chaus');
+        navigate("../signin");
+    }
+
     return(
         <>
             <TitlePage namePage={"Mi perfil"}/>
@@ -20,7 +37,7 @@ export const ProfilePage = () => {
                 }}
             >
                 <Grid xs={12} md={12} textAlign="end">
-                    <Button> Cerrar sesión </Button>
+                    <Button onClick={onLogOut}> Cerrar sesión </Button>
                 </Grid>
                 <Grid xs={12} md={4}>
                     <Typography variant="h5">
@@ -30,9 +47,10 @@ export const ProfilePage = () => {
                     <Box sx={{ p: 2, display: 'flex'}}>
                         <Avatar variant="rounded" sx={{mr: "20px"}}/>
                         <Stack>
-                            <Typography textAlign="left" variant="h6" fontWeight={700}>Diana Rios</Typography>
+                            <Typography textAlign="left" variant="h6" fontWeight={700}>{ name }</Typography>
+                            
                             <Typography variant="body2" color="text.secondary">
-                                Oaxaca, Mexico
+                                { `${city}, ${state}` }
                             </Typography>
                         </Stack>
                     </Box>
