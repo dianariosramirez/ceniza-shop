@@ -1,13 +1,11 @@
-// Utils
-import { delay } from "../../../commons/utils";
-
-// Resources
-import { accesorios } from "../../../resources/productsData";
+// Config
+import { SERVER_URL } from "../../../config";
 
 export class AccesoriosService {
 
     static getAccesorios = async () => {
-        await delay(3000);
+        const accesoriosData = await fetch(`${SERVER_URL}/accesorios`);
+        const accesorios = await accesoriosData.json();
         return accesorios;
     }
 }

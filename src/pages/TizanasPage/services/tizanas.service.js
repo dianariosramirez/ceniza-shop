@@ -1,13 +1,11 @@
-// Utils
-import { delay } from "../../../commons/utils";
-
-// Resources
-import { tizanas } from "../../../resources/productsData";
+// Config
+import { SERVER_URL } from "../../../config";
 
 export class TizanasService {
 
     static getTizanas =  async () => {
-        await delay(3000);
+        const tizanasData = await fetch(`${SERVER_URL}/tizanas`);
+        const tizanas = await tizanasData.json();
         return tizanas;
     };
 }

@@ -6,7 +6,7 @@ import { Box } from "@mui/system";
 
 // Components
 import { ProductCard } from "../../components/ProductCard/ProductCard";
-import { TitlePage } from "../../components/TitlePage/TitlePage";
+import { TitlePage } from "../../components/titlePage/titlePage";
 import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
 
 // Services
@@ -57,6 +57,5 @@ export const TizanasPage = () => {
             }
             </Grid>   
         </Box>
-
     )
 }

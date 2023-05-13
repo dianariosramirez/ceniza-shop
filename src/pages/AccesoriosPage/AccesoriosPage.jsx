@@ -6,7 +6,7 @@ import { Grid } from "@mui/material";
 
 // Components
 import { ProductCard } from "../../components/ProductCard/ProductCard";
-import { TitlePage } from "../../components/TitlePage/TitlePage";
+import { TitlePage } from "../../components/titlePage/titlePage";
 import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
 
 // Services

@@ -40,7 +40,7 @@ export const ProductDetail = ({ name, type, price, info, capacity }) => {
                 }
             })}
         >
-        { price }
+        { `$${price}.00` }
         </Typography>
         <Box 
             sx={{ 

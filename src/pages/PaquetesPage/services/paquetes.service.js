@@ -1,13 +1,12 @@
-// Utils
-import { delay } from "../../../commons/utils";
-
-//Resources
-import { paquetes } from "../../../resources/productsData";
+// Config
+import { SERVER_URL } from "../../../config";
 
 export class PaquetesService {
 
     static getPaquetes = async () => {
-        await delay(3000);
+        const paquetesData = await fetch(`${SERVER_URL}/paquetes`);
+        const paquetes = await paquetesData.json();
         return paquetes;
     }
 }
+
