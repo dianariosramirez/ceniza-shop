@@ -15,7 +15,9 @@ import { TitlePage } from "../../components/titlePage/titlePage";
 
 
 export const ShoppingCartPage = () => {
-    const { totalPrice } = useShoppingCartStore();
+    const { totalPrice, productsCart } = useShoppingCartStore();
+    console.log( totalPrice );
+    console.log(productsCart);
 
     return(
         <Box m={3}>

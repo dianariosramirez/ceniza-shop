@@ -46,6 +46,7 @@ export const AccesoriosPage = () => {
                     return (
                         <Grid item xs={6} md={3} key={accesorio.id}>
                             <ProductCard
+                                id={accesorio.id}
                                 name={accesorio.name}
                                 price={accesorio.price}
                                 imageURL= {accesorio.imageURL}

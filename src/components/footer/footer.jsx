@@ -8,7 +8,7 @@ import { Stack } from '@mui/system';
 
 export const Footer = () => {
   return (
-    <Box sx={{ mt: 5, backgroundColor: "#eb7072"}} >
+    <Box sx={{ mt: 5, backgroundColor: "#801515", color: "#D46A6A"}} >
       <Grid container spacing={0} >
         <Grid 
           xs={12} 

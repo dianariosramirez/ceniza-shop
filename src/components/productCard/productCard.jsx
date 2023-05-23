@@ -9,7 +9,7 @@ import { Stack } from '@mui/system';
 // Store
 import { useShoppingCartStore } from '../../store/shoppingCartStore';
 
-export const ProductCard = ({ name, price, imageURL, productDetail }) => {
+export const ProductCard = ({ id, name, price, imageURL, productDetail }) => {
 
   const [ favoriteMark, setFavoriteMark] = useState( "notFav" );
   const { addToCart } = useShoppingCartStore();
@@ -54,7 +54,7 @@ export const ProductCard = ({ name, price, imageURL, productDetail }) => {
           <Button 
             startIcon={<AddShoppingCart/>} 
             size="small"
-            onClick={() => addToCart({ name, price, imageURL, productDetail })}
+            onClick={() => addToCart({ id, name, price, imageURL, productDetail })}
           >
             Añadir
           </Button>
@@ -77,5 +77,7 @@ export const ProductCard = ({ name, price, imageURL, productDetail }) => {
     </Card>
   );
 };
+
+
 
 

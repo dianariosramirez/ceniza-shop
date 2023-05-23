@@ -6,7 +6,7 @@ import { Grid } from "@mui/material";
 
 // Components
 import { ProductCard } from "../../components/ProductCard/ProductCard";
-import { TitlePage } from "../../components/TitlePage/TitlePage";
+import { TitlePage } from "../../components/titlePage/titlePage";
 import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
 
 // Services
@@ -48,6 +48,7 @@ export const PaquetesPage = () => {
                     return (
                         <Grid item xs={6} md={3} key={paquete.id}>
                             <ProductCard
+                                id={paquete.id}
                                 name={paquete.name}
                                 price={paquete.price}
                                 imageURL= {paquete.imageURL}

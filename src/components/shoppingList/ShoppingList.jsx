@@ -11,12 +11,14 @@ export const ShoppingList = () => {
 
     const { productsCart } = useShoppingCartStore();
 
+    const productsIntoCart = Object.values( productsCart );
+
     return (
         <List sx={{ width: '100%'}}>
             {
-                productsCart.map( product => {
+                productsIntoCart.map( product => {
                     return (
-                        <div key={product.name}>
+                        <div key={product.productData.name}>
                         <ListItem >
                             <Container 
                                 sx={{
@@ -27,16 +29,16 @@ export const ShoppingList = () => {
                             >
                                 <Box 
                                     component="img" 
-                                    src={product.imageURL}
+                                    src={product.productData.imageURL}
                                     width="200px"                               
                                 />   
                                 <Stack>
                                     <Typography>
-                                        {product.name}
+                                        {product.productData.name}
                                     </Typography>
                                 </Stack>
                                 <Typography>
-                                    {`$${product.price}.00`}
+                                    {`$${product.productData.price}.00`}
                                 </Typography>
                             </Container>                              
                         </ListItem>

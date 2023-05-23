@@ -31,7 +31,7 @@ export const AppBarDesktop = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" color="secondary" elevation={0}>
-                <StyledToolbar type="desktop" >
+                <StyledToolbar>
                     <Box
                         size="large"
                         edge="start"

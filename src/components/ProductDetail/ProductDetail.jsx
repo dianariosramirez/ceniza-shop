@@ -54,7 +54,7 @@ export const ProductDetail = ({ name, type, price, info, capacity }) => {
             >
                 <Favorite/>
             </IconButton>
-            <Button variant='contained' sx={{ width: '90%'}}>
+            <Button variant='contained' color='primary' sx={{ width: '90%'}}>
                 Agregar al carrito
             </Button>
         </Box>

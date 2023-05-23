@@ -44,6 +44,7 @@ export const TizanasPage = () => {
                     return (
                         <Grid item xs={6} md={3} key={tizana.id}>
                             <ProductCard
+                                id={tizana.id}
                                 name={tizana.name}
                                 price={tizana.price}
                                 imageURL= {tizana.imageURL}
