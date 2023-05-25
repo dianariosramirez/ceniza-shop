@@ -1,7 +1,6 @@
 // Images
 import slider from '../../resources/images/slider.png';
 import slider1 from '../../resources/images/slider1.png';
-import slider2 from '../../resources/images/slider2.png';
 import slider3 from '../../resources/images/slider3.png';
 import slider4 from '../../resources/images/slider4.png';
 import slider5 from '../../resources/images/slider5.png';
@@ -17,10 +16,6 @@ export const sliderToCarrusel =  [
     {
         "id": 101,
         "image": slider1
-    },
-    {
-        "id": 102,
-        "image": slider2
     },
     {
         "id": 103,

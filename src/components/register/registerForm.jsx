@@ -146,8 +146,17 @@ export const RegisterForm = () => {
         >
           Continuar
         </Button>     
-        <NavLink to="../signin">
-          <Typography textAlign="end" color="primary" >
+        <NavLink 
+          to="../signin"
+          className={({ isActive, isPending }) =>
+            isActive
+            ? "active"
+            : isPending
+            ? "pending"
+            : "none"
+          }
+        >
+          <Typography textAlign="end" color="primary" sx={{textDecoration: "none"}}>
             Ya tengo una cuenta
           </Typography>          
         </NavLink>  

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // MUI components
-import { Button, Card, CardContent, CardMedia, IconButton, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, CardMedia, IconButton, Typography, useMediaQuery } from '@mui/material';
 import { AddShoppingCart, Favorite } from '@mui/icons-material';
 import { Stack } from '@mui/system';
 
@@ -10,6 +10,7 @@ import { Stack } from '@mui/system';
 import { useShoppingCartStore } from '../../store/shoppingCartStore';
 
 export const ProductCard = ({ id, name, price, imageURL, productDetail }) => {
+  const matches = useMediaQuery('(min-width:400px)');
 
   const [ favoriteMark, setFavoriteMark] = useState( "notFav" );
   const { addToCart } = useShoppingCartStore();
@@ -35,43 +36,42 @@ export const ProductCard = ({ id, name, price, imageURL, productDetail }) => {
         <CardMedia
         component="img"
         alt="Product photo"
-        height="40%"
         image={imageURL}
         title={name}
         />
       </Link>
      
-      <CardContent sx={{ display: 'flex', justifyContent:'space-between'}}>
-        <Stack>
-          <Typography variant="h5" component="h2">
-            {name}
-          </Typography>
-          <Typography variant="body2" component="p" sx={{ color: 'purple' }}>
-            {`$${price}.00`}
-          </Typography>
-        </Stack>
-        <Stack direction="row">
-          <Button 
-            startIcon={<AddShoppingCart/>} 
-            size="small"
-            onClick={() => addToCart({ id, name, price, imageURL, productDetail })}
-          >
-            Añadir
-          </Button>
-          {/* <LoadingButton
-            loading
-            loadingPosition="start"
-            startIcon={<AddShoppingCart />}
-            variant="outlined"
-          >
-            Añadir
-          </LoadingButton> */}
-          <IconButton 
-            onClick={ onClickFav } 
-            color= { favoriteMark === "isFav" ? "primary" : "gray"}
-          >
-            <Favorite/>
-          </IconButton>
+      <CardContent sx={{paddingBottom: "1px"}}>
+        <Stack 
+          sx={{
+            display: "flex",
+            flexDirection: matches ? "row" : "column",
+            justifyContent: matches ? "space-between" : "center",
+            marginBottom: "0.3rem",
+            paddingBottom: "none"
+          }}
+        >
+          <Box>
+            <Typography variant="subtitle1">
+              {name}
+            </Typography>
+            <Typography variant="subtitle2" sx={{ color: 'green' }}>
+              {`$${price}.00`}
+            </Typography>
+          </Box>
+          <Box sx={{display: "flex"}}>
+            <Button 
+              startIcon={<AddShoppingCart/>} 
+              size="small"
+              onClick={() => addToCart({ id, name, price, imageURL, productDetail })}
+            />
+            <IconButton 
+              onClick={ onClickFav } 
+              color= { favoriteMark === "isFav" ? "primary" : "gray"}
+            >
+              <Favorite/>
+            </IconButton>
+          </Box>
         </Stack>
       </CardContent>
     </Card>

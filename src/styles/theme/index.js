@@ -3,9 +3,9 @@ import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
   palette: {
     primary: {
-      light: '#FFAAAA',
-      main: '#801515',
-      dark: '#384252',
+      light: '#white',
+      main: '#437A28',
+      dark: '#314A24',
       contrastText: 'white',
     },
     secondary: {
@@ -15,9 +15,9 @@ export const theme = createTheme({
       contrastText: '#5f545c',
     },
     error: {
-      light: '#AA3939',
-      main: '#801515',
-      dark: '#AA3939',
+      light: '#5F9545',
+      main: '#437A28',
+      dark: '#314A24',
       contrastText: '#ffffdd',
     },
     warning: {
@@ -32,13 +32,42 @@ export const theme = createTheme({
     },
   },
   typography: {
-    h6: {
-      fontSize: '1.1rem',
+    h5: {
       textAlign: 'center',
-      '@media (min-width:900px)': {
-        fontSize: '1.4rem',
-        textAlign: 'justify'
+      fontSize:"1.5rem",
+      '@media (max-width:400px)': {
+        textAlign: 'justify',
+        fontSize:'0.9rem'
+      }
+    },
+    body2: {
+      '@media (max-width:400px)': {
+        fontSize:'0.7rem'
+      }
+    },
+    body1: {
+      '@media (max-width:400px)': {
+        fontSize:'0.7rem'
+      }
+    },
+    subtitle1: {
+      textAlign: 'left',
+      fontSize:"1.5rem",
+      '@media (max-width:400px)': {
+        fontSize:'0.8rem',
+        textAlign: 'center'
+      }
+    },
+    subtitle2: {
+      textAlign: 'left',
+      fontSize:"1.2rem",
+      fontFamily: "Roboto",
+      '@media (max-width:400px)': {
+        textAlign: 'center',
+        fontSize:'0.6rem'
       }
     }
   }
 });
+
+

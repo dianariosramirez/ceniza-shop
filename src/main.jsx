@@ -8,12 +8,13 @@ import router from './App'
 // Styles
 import './index.css'
 import { theme } from './styles/theme/index';
-import { ThemeProvider } from '@mui/material';
+import { ThemeProvider, responsiveFontSizes } from '@mui/material';
 
+const themeResponsive = responsiveFontSizes(theme);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={themeResponsive}>
         <RouterProvider router={router} />
       </ThemeProvider>
   </React.StrictMode>

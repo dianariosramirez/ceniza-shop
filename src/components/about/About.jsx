@@ -8,16 +8,15 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2";
 export const About = () => {
     return (
         <Box>
-            <Typography variant="h4" textAlign="center" mb={2}>
+            <Typography variant="h3" textAlign="center">
                 Sobre nosotros
             </Typography>
-            <Grid container spacing={1}>
+            <Grid container marginTop={2}>
                 <Grid 
                     xs={12} 
-                    md={5}           
+                    md={6}           
                     sx={ theme => ( {
                         display: 'flex', 
-                        margin: '10px',
                         justifyContent: 'flex-end',
                         [theme.breakpoints.down('md')]: {
                             justifyContent:  'center'
@@ -27,7 +26,7 @@ export const About = () => {
                     <Box 
                         component="img"
                         alt="Sobre nosotros"
-                        src="https://scontent.fmtt1-1.fna.fbcdn.net/v/t1.6435-9/122582028_351210052885666_470377248405607510_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a26aad&_nc_ohc=9Ty0OkR_2gIAX_IdZpc&_nc_ht=scontent.fmtt1-1.fna&oh=00_AfAyB_zsDGBF8Xz0W6K6Re1iJUXycgsqUJFFBSkqDx1elg&oe=644EE597"
+                        src="https://i.ibb.co/ngy9Qwh/about-image.png"
                         sx={ theme => ({
                             width: "400px",
                             height: "400px",
@@ -44,12 +43,13 @@ export const About = () => {
                     xs={12} 
                     md={5}
                     sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center'
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        padding:"10px"
                     }}
                 >
-                    <Typography variant="h6">
+                    <Typography variant="h5">
                         Somos una empresa 100% oaxaqueña, elaboramos tizanas 
                         artesanales y naturales de la mejor calidad. Trabajamos
                         en infusiones que sean propias de ceniza.mx, con el objetivo 

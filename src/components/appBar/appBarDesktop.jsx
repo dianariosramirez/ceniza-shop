@@ -42,7 +42,6 @@ export const AppBarDesktop = () => {
                         <NavLink to={ REPO_BASE_NAME }>
                             <img src={ logo } />  
                         </NavLink>
-
                     </Box>
 
                     <MenuList

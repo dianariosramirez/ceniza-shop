@@ -1,79 +1,139 @@
 import React from 'react';
 
 // MUI components
-import { Box, Divider, IconButton, Typography } from '@mui/material';
+import { Box, Button, Divider, IconButton, TextField, Typography } from '@mui/material';
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
-import { Facebook, Instagram } from '@mui/icons-material';
+import { Facebook, Instagram, LocalShipping, Lock, Store, TouchApp } from '@mui/icons-material';
 import { Stack } from '@mui/system';
 
 export const Footer = () => {
   return (
-    <Box sx={{ mt: 5, backgroundColor: "#801515", color: "#D46A6A"}} >
+    <Box sx={{ mt: 5, backgroundColor: "#437A28", color: "#A1C88F"}} >
       <Grid container spacing={0} >
         <Grid 
-          xs={12} 
-          md={12} 
+          xs={12} md={4} 
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            padding: 2
+            padding: "2rem",
+            paddingBottom: "0px"
           }}
         >
-          <Typography sx={{fontStyle: 'italic'}}>
-            "Todo en la vida es mejor con tizanas"
+          <Typography variant='h6' align='center'>
+            ¡Suscríbete a nuestro newsletter!
+          </Typography>
+          <Typography variant='body2' align='center'>
+            Recibe ofertas, alertas de productos, recetas y más. Puede 
+            anular su suscripción en cualquier momento.
           </Typography>
         </Grid>
         <Grid 
-          xs={6} 
-          md={6} 
-          sx={{ 
-            display: 'flex', 
-            justifyContent: 'center' 
+          xs={12} md={6} 
+          sx={{
+            padding: "1rem",
+            display: "flex",
+            flexDirection: "row",
+            justifyItems: "center"
           }}
         >
-          <Stack sx={{ margin: 2}}>
-            <Typography>
-              Contáctanos:
-            </Typography>
-            <Divider/>
-            <Typography>
-              +00 000 000 0000
-            </Typography>
+          <TextField
+              type="email"
+              label="Correo electrónico"
+              variant="filled"
+              size="small"
+              sx={{width:'80%'}}
+          />
+          <Button type="submit" variant="contained" color="primary" size='small' sx={{width:'15%', marginBottom:"1rem", height:"95%"}}>
+            Enviar
+          </Button>
+        </Grid>
+        <Grid xs={12} md={12}>
+          <Stack 
+            marginBottom="2rem"
+            direction="row" 
+            alignItems="center"
+            justifyContent="space-around"
+            spacing={{ xs: 1, sm: 2, md: 4 }}
+            divider={<Divider orientation="vertical" flexItem />}
+          >
+            <Box sx={{textAlign: "center"}}>
+              <Lock fontSize="large" />
+              <Typography>Pagos seguros</Typography>
+            </Box> 
+            <Box sx={{textAlign: "center"}}>
+              <TouchApp fontSize="large" />
+              <Typography>Compra fácil</Typography>
+            </Box>
+            <Box sx={{textAlign: "center"}}>
+              <LocalShipping fontSize="large" />
+              <Typography>Envíos a todo México</Typography>
+            </Box>
+            <Box sx={{textAlign: "center"}}>
+              <Store fontSize="large" />
+              <Typography>Tiendas físicas</Typography>
+            </Box>
           </Stack>
         </Grid>
-
+        <Grid xs={12} md={6} >
+          <Typography fontWeight="bold" textAlign="center">
+            Huajuapan de León, Oax., México CP: 69000
+          </Typography>
+          <Typography textAlign="center">
+            ceniza.juanpi@gmail.com
+          </Typography>
+          <Typography textAlign="center">
+            +52 953 123 4258
+          </Typography>
+          <Stack direction="row" justifyContent="center" spacing={{ xs: 1, sm: 2, md: 4 }} sx={{ margin: 2}}>
+            <Facebook/>
+            <Instagram/>
+          </Stack>
+        </Grid>
         <Grid 
           xs={6} 
-          md={6} 
+          md={3} 
           sx={{
-            display: 'flex', 
-            alignItems: 'center', 
+            display: 'flex',
             justifyContent: 'center'
           }}
         >
-          <Typography variant='h5'>
-            ¡Síguenos!
-          </Typography>
-          <IconButton>
-            <Facebook/>
-          </IconButton>
-          <IconButton>
-            <Instagram/>
-          </IconButton>
+          <Stack>
+            <Typography fontWeight="bold" variant='body2'>Ceniza</Typography>
+            <Divider/>
+            <Typography variant='body2'>Nosotros</Typography>
+            <Typography variant='body2'>Disfruta</Typography>
+            <Typography variant='body2'>Nuestras tiendas</Typography>
+            <Typography variant='body2'>Contacto</Typography>
+            <Typography variant='body2'>Catálogo</Typography>
+          </Stack>
         </Grid>
-
+        <Grid 
+          xs={6} 
+          md={3} 
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginBottom:"1rem"
+          }}
+        >
+          <Stack>
+            <Typography fontWeight="bold" variant='body2'>Atención al cliente</Typography>
+            <Divider/>
+            <Typography variant='body2'>Términos y condiciones</Typography>
+            <Typography variant='body2'>Cambios y devoluciones</Typography>
+            <Typography variant='body2'>Políticas de privacidad</Typography>
+            <Typography variant='body2'>Legales</Typography>
+            <Typography variant='body2'>Preguntas frecuentes</Typography>
+          </Stack>
+        </Grid>
         <Grid 
           xs={12} 
           md={12} 
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
             backgroundColor: 'white',
-            color: 'gray'
+            color: 'gray',
           }}
         >
-          <Typography>
-            Ceniza.mx | Web por: Diana Rios 
+          <Typography variant='body2' marginTop='1rem' textAlign="center">
+          Ceniza Mx 2023. Todos los derechos reservados | Web por: Diana Rios 
           </Typography>
         </Grid>
       </Grid>      

@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 
 // MUI
-import { useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 
 //Components
 import { AppBarDesktop } from "../../components/AppBar/AppBarDesktop"
