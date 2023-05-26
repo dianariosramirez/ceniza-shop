@@ -4,7 +4,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 // Components
-import { TitlePage } from "../../components/titlePage/titlePage";
+import { TitlePage } from "../../components/TitlePage/TitlePage";
 
 // MUI components
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
@@ -30,10 +30,10 @@ export const ProfilePage = () => {
             <TitlePage namePage={"Mi perfil"}/>
             <Grid 
                 container 
-                spacing={6} 
+                spacing={1} 
                 sx={{
-                    padding: "30px",
-                    '& > :not(style)': { mb: 2},
+                    paddingLeft: "30px",
+                    paddingRight: "30px"
                 }}
             >
                 <Grid xs={12} md={12} textAlign="end">
@@ -47,7 +47,7 @@ export const ProfilePage = () => {
                     <Box sx={{ p: 2, display: 'flex'}}>
                         <Avatar variant="rounded" sx={{mr: "20px"}}/>
                         <Stack>
-                            <Typography textAlign="left" variant="h6" fontWeight={700}>{ name }</Typography>
+                            <Typography textAlign="left" variant="body1" fontWeight={500}>{ name }</Typography>
                             
                             <Typography variant="body2" color="text.secondary">
                                 { `${city}, ${state}` }

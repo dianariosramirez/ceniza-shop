@@ -1,9 +1,9 @@
 import React from 'react';
 
 // MUI components
-import { Box, Button, Divider, IconButton, TextField, Typography } from '@mui/material';
+import { Box, Button, Divider, Link, TextField, Typography } from '@mui/material';
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
-import { Facebook, Instagram, LocalShipping, Lock, Store, TouchApp } from '@mui/icons-material';
+import { Facebook, Instagram, LocalShipping, Lock, Store, TouchApp, WhatsApp } from '@mui/icons-material';
 import { Stack } from '@mui/system';
 
 export const Footer = () => {
@@ -21,8 +21,8 @@ export const Footer = () => {
             ¡Suscríbete a nuestro newsletter!
           </Typography>
           <Typography variant='body2' align='center'>
-            Recibe ofertas, alertas de productos, recetas y más. Puede 
-            anular su suscripción en cualquier momento.
+            Recibe ofertas, alertas de productos, recetas y más. Puedes
+            anular tu suscripción en cualquier momento.
           </Typography>
         </Grid>
         <Grid 
@@ -39,7 +39,7 @@ export const Footer = () => {
               label="Correo electrónico"
               variant="filled"
               size="small"
-              sx={{width:'80%'}}
+              sx={{width:'80%', marginRight:'3%'}}
           />
           <Button type="submit" variant="contained" color="primary" size='small' sx={{width:'15%', marginBottom:"1rem", height:"95%"}}>
             Enviar
@@ -83,8 +83,15 @@ export const Footer = () => {
             +52 953 123 4258
           </Typography>
           <Stack direction="row" justifyContent="center" spacing={{ xs: 1, sm: 2, md: 4 }} sx={{ margin: 2}}>
-            <Facebook/>
-            <Instagram/>
+            <Link color="#A1C88F" component="button" href='https://www.facebook.com/ceniza.mx/'>
+              <Facebook/>
+            </Link>
+            <Link color="#A1C88F" component="button" href='https://www.instagram.com/ceniza.mx/'>
+              <Instagram/>
+            </Link>
+            <Link color="#A1C88F" component="button" href='https://api.whatsapp.com/send?phone=9531234258&text=Hola%20Ceniza%20Mx'>
+              <WhatsApp/>
+            </Link>
           </Stack>
         </Grid>
         <Grid 
@@ -132,7 +139,7 @@ export const Footer = () => {
             color: 'gray',
           }}
         >
-          <Typography variant='body2' marginTop='1rem' textAlign="center">
+          <Typography variant='body2' marginTop='0.5rem' textAlign="center">
           Ceniza Mx 2023. Todos los derechos reservados | Web por: Diana Rios 
           </Typography>
         </Grid>

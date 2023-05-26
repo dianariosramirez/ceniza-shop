@@ -37,17 +37,28 @@ export const theme = createTheme({
       fontSize:"1.5rem",
       '@media (max-width:400px)': {
         textAlign: 'justify',
-        fontSize:'0.9rem'
+        fontSize:'0.6rem'
       }
     },
     body2: {
+        fontSize:'0.7rem',
       '@media (max-width:400px)': {
-        fontSize:'0.7rem'
+        fontSize:'0.4rem'
       }
     },
     body1: {
       '@media (max-width:400px)': {
         fontSize:'0.7rem'
+      }
+    },
+    h3: {
+      '@media (max-width:400px)': {
+        fontSize:'1.5rem'
+      }
+    },
+    button: {
+      '@media (max-width:400px)': {
+        fontSize:'0.6rem'
       }
     },
     subtitle1: {
