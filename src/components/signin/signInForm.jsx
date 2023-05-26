@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Form
 import { useFormik } from 'formik';
@@ -8,18 +8,26 @@ import { initialValuesToSignInForm as initialValues, validationSchemaSignIn as v
 import { SERVER_URL } from "../../config";
 
 // MUI components
-import { Box, Button, Container, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, IconButton, InputAdornment, TextField, Typography, useMediaQuery } from '@mui/material';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 //Store
 import { useUserStore } from '../../store/user';
 
+const errorMessageStyle = {
+  fontSize: '0.6rem', 
+  color: 'green'
+};
+
 export const SignInForm = () => {
 
-  const { userDataLogged } = useUserStore();
-
+  const [showPassword, setShowPassword] = useState( false );
   const navigate = useNavigate();
+  const { userDataLogged } = useUserStore();
+  const matches = useMediaQuery('(min-width:400px)');
 
+  // Request
   const onSubmit = ( values ) => {
     fetch( `${SERVER_URL}/signin`, {
       method: 'POST',
@@ -43,13 +51,17 @@ export const SignInForm = () => {
     });  
   }
 
+  // Form
   const formik = useFormik({
     initialValues,
     onSubmit,
     validationSchema
-  })
-
+  });
   const { handleChange, handleSubmit, errors, touched, getFieldProps, dirty, isValid } = formik;
+
+  const handleTogglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <Container 
@@ -60,12 +72,12 @@ export const SignInForm = () => {
     >
       <Box 
         component="form" 
-        width="50%"
-        mt={5}
+        width={ matches ? "50%" : "80%"}
+        mt={matches ? 2 : 1}
         onSubmit={handleSubmit}
         sx={{
-          padding: "30px",
-          '& > :not(style)': { mb: 5},
+          padding: "1.5rem",
+          '& > :not(style)': { mb: matches ? 2 : 1 },
         }}
       >    
         <Typography variant="h4">
@@ -74,38 +86,65 @@ export const SignInForm = () => {
 
         <TextField
           fullWidth
+          size={ matches ? 'normal' : 'small'}
           variant="outlined"
           label="Correo electrónico"
           name="email"
           onChange={handleChange}
           { ... getFieldProps('email') }
           helperText={
-            errors.email && touched.email ? `${errors.email}` : null
+            errors.email && touched.email ? (
+              <div style={errorMessageStyle}>{errors.email}</div>
+            ) : null
           }
           type="email"
         />
 
         <TextField 
           fullWidth
+          size={ matches ? 'normal' : 'small'}
           variant="outlined" 
           label="Contraseña"
           name="password" 
           onChange={handleChange}
-          { ...getFieldProps( 'password' ) }
+          { ... getFieldProps('password') }
           helperText={
-            errors.password && touched.password ? `${ errors.password }` : null
+            errors.password && touched.password ? (
+              <div style={errorMessageStyle}>{errors.password}</div>
+            ) : null
           }
-          type="password"
+          type={showPassword ? 'text' : 'password'}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton onClick={handleTogglePasswordVisibility}>
+                  {showPassword ? <VisibilityOff fontSize="small" /> : <Visibility fontSize="small"/>}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
+
         <Button 
           fullWidth
+          size={ matches ? 'normal' : 'small'}
           variant="contained" 
           type="submit" 
           disabled={!(isValid && dirty)}
         >
           Continuar
-        </Button>     
-        <NavLink to="../register">
+        </Button>  
+
+        <NavLink 
+          to="../register"
+          className={({ isActive, isPending }) =>
+            isActive
+            ? "active"
+            : isPending
+            ? "pending"
+            : "none"
+          }
+        >
           <Typography textAlign="end" color="primary">
             Crear cuenta
           </Typography>          

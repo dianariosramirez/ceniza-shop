@@ -56,6 +56,11 @@ export const theme = createTheme({
         fontSize:'1.5rem'
       }
     },
+    h4: {
+      '@media (max-width:400px)': {
+        fontSize:'1.5rem'
+      }
+    },
     button: {
       '@media (max-width:400px)': {
         fontSize:'0.6rem'
