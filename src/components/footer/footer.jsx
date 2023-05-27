@@ -45,7 +45,13 @@ export const Footer = () => {
             Enviar
           </Button>
         </Grid>
-        <Grid xs={12} md={12}>
+        <Grid xs={12} md={12} 
+          sx={{
+            padding: "2rem",
+            paddingBottom: "0px",
+            paddingTop: "0px"
+          }}
+        >
           <Stack 
             marginBottom="2rem"
             direction="row" 

@@ -13,3 +13,8 @@
     text-decoration: none;
     color:black
 }
+
+.drawer {
+    width: 240;
+    flex-shrink: 0;
+}

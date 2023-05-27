@@ -6,6 +6,7 @@ import { Box, styled } from "@mui/system";
 export const Offset = styled( 'div' )( ( { theme } ) => theme.mixins.toolbar);
 
 export const StyledToolbar = styled( Toolbar )( ( { theme, type } ) => ({
+    display: "flex",
     alignItems: type === 'desktop' ? 'flex-start' : 'center',
     justifyContent: type !== 'desktop' && 'space-around',
     paddingTop: theme.spacing(1),

@@ -1,13 +1,12 @@
+// Dependencies
 import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
+
+// Components
+import { DrawerMobile } from "../Drawer/DrawerMobile";
+
 //Material UI components
-import {
-    AppBar,
-    Box,
-    IconButton,
-    Menu,
-    MenuItem
-} from '@mui/material';
+import { AppBar, Box, IconButton } from '@mui/material';
 
 // Icons
 import SearchIcon from '@mui/icons-material/Search';
@@ -23,18 +22,19 @@ import logo from '../../resources/images/logo.png';
 import { REPO_BASE_NAME } from '../../commons/constants';
 
 export const AppBarMobile = () => {
-    const [anchorEl, setAnchorEl] = useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
+    const [open, setOpen] = useState(false);
+
+    const handleDrawerOpen = () => {
+    setOpen(true);
     };
-    const handleClose = () => {
-        setAnchorEl(null);
+
+    const handleDrawerClose = () => {
+        setOpen(false);
     };
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" color="secondary" elevation={0}>
+            <AppBar position="static" color="secondary" elevation={0} >
                 <StyledToolbar>
                     <IconButton>
                         <SearchIcon />   
@@ -56,58 +56,16 @@ export const AppBarMobile = () => {
                         aria-controls={open ? 'basic-menu' : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
-                        onClick={handleClick}
+                        onClick={handleDrawerOpen}
                     >
                         <MenuRoundedIcon/>   
                     </IconButton>
-                    <Menu
-                        id="basic-menu"
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        MenuListProps={{
-                        'aria-labelledby': 'basic-button',
-                        }}
-                    >
-                        <NavLink
-                            to="product_tizanas/"
-                            className={({ isActive, isPending }) =>
-                                isActive
-                                ? "active"
-                                : isPending
-                                ? "pending"
-                                : "none"
-                            }                        
-                        >
-                            <MenuItem onClick={handleClose}>Tizanas</MenuItem>
-                        </NavLink>
-                        <NavLink
-                            to="product_paquetes/"
-                            className={({ isActive, isPending }) =>
-                                isActive
-                                ? "active"
-                                : isPending
-                                ? "pending"
-                                : "none"
-                            }                        
-                        >
-                            <MenuItem onClick={handleClose}>Paquetes</MenuItem>
-                        </NavLink>
-                        <NavLink
-                            to="product_accesorios/"
-                            className={({ isActive, isPending }) =>
-                                isActive
-                                ? "active"
-                                : isPending
-                                ? "pending"
-                                : "none"
-                            }                        
-                        >
-                            <MenuItem onClick={handleClose}>Accesorios</MenuItem>
-                        </NavLink>   
-                    </Menu>
                 </StyledToolbar>
             </AppBar>
+            <DrawerMobile
+                open={open} 
+                handleDrawerClose={handleDrawerClose}
+            />
         </Box>
     )
 }
