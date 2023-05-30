@@ -22,8 +22,22 @@ export const AccesoriosPage = () => {
     useEffect( () => {
         AccesoriosService.getAccesorios().then( accesorios => {
             setAccesorios( accesorios );
-            setLoading( false );
-        })
+            
+            const loadImage = async (accesorio) => {
+                const image = new Image();
+                image.src = accesorio.imageURL;
+        
+                await new Promise((res, rej) => {
+                  image.onload = res;
+                });
+            };
+
+            Promise.all( accesorios.map( accesorio => loadImage(accesorio)) )
+                .then( () => {
+                    setLoading(false)
+                })
+        });
+        
     }, [] )
 
     return(  

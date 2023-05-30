@@ -52,10 +52,10 @@ export const ProductCard = ({ id, name, price, imageURL, productDetail }) => {
           }}
         >
           <Box>
-            <Typography variant="subtitle1">
+            <Typography variant="subtitle2">
               {name}
             </Typography>
-            <Typography variant="subtitle2" sx={{ color: 'green' }}>
+            <Typography variant="subtitle1" sx={{ color: 'green' }}>
               {`$${price}.00`}
             </Typography>
           </Box>

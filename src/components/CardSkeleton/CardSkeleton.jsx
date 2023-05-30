@@ -26,3 +26,12 @@ export const CardSkeleton = () => {
     </Card>
     );
 }
+
+export const ImageSkeleton = () => {
+    return(
+        <Skeleton
+            variant='rectangular'
+            height='auto'
+        />
+    )
+}

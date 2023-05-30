@@ -9,4 +9,3 @@ export class TizanasService {
         return tizanas;
     };
 }
-

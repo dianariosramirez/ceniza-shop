@@ -20,8 +20,22 @@ export const PaquetesPage = () => {
     useEffect( () => {
         PaquetesService.getPaquetes().then( paquetes => {
             setPaquetes( paquetes );
-            setLoading( false );
-        })
+            
+            const loadImage = async (paquete) => {
+                const image = new Image();
+                image.src = paquete.imageURL;
+        
+                await new Promise((res, rej) => {
+                  image.onload = res;
+                });
+            };
+
+            Promise.all( paquetes.map( paquete => loadImage(paquete)) )
+                .then( () => {
+                    setLoading(false)
+                })
+        });
+        
     }, [] )
 
     return(  

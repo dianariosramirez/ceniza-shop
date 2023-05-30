@@ -29,6 +29,7 @@ export const AppBarMobile = () => {
     };
 
     const handleDrawerClose = () => {
+        console.log("cerranding");
         setOpen(false);
     };
 

@@ -16,12 +16,26 @@ import { TizanasService } from "./services/tizanas.service";
 export const TizanasPage = () => {
     const [ tizanas, setTizanas ] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    
     useEffect( () => {
         TizanasService.getTizanas().then( tizanas => {
             setTizanas( tizanas );
-            setLoading( false );
+            
+            const loadImage = async (tizana) => {
+                const image = new Image();
+                image.src = tizana.imageURL;
+        
+                await new Promise((res, rej) => {
+                  image.onload = res;
+                });
+            };
+
+            Promise.all( tizanas.map( tizana => loadImage(tizana)) )
+                .then( () => {
+                    setLoading(false)
+                })
         });
+        
     }, [] )
     
     return(  
