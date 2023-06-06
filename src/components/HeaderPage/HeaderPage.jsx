@@ -5,7 +5,7 @@ import { Stack } from '@mui/system';
 import { Divider, Typography} from '@mui/material';
 
 
-export const TitlePage = ( {namePage} ) => {
+export const HeaderPage = ( {namePage} ) => {
   return (
     <Stack mb={4}>
         <Divider />

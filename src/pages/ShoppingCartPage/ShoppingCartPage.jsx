@@ -11,7 +11,7 @@ import { ShoppingList } from "../../components/ShoppingList/ShoppingList";
 
 // Store
 import { useShoppingCartStore } from "../../store/shoppingCartStore";
-import { TitlePage } from "../../components/titlePage/titlePage";
+import { HeaderPage } from "../../components/HeaderPage/HeaderPage";
 
 
 export const ShoppingCartPage = () => {
@@ -21,7 +21,7 @@ export const ShoppingCartPage = () => {
 
     return(
         <Box m={3}>
-            <TitlePage namePage={"Carrito de compra"}/>
+            <HeaderPage namePage={"Carrito de compra"}/>
             <Grid container spacing={2}>
                 <Grid xs={12} sm={12} md={8}>
                     <ShoppingList/>
@@ -29,11 +29,11 @@ export const ShoppingCartPage = () => {
                 <Grid xs={12} sm={12} md={4}>
                     <Card>
                         <CardContent>
-                            <Typography variant="h5" textAlign="start">
+                            <Typography variant="h5" textAlign="start" fontWeight={'bold'}>
                                 Subtotal
                             </Typography>
                             <Divider/>
-                            <Typography variant="h5" textAlign="end" mt={2}>
+                            <Typography variant="h6" textAlign="end" mt={1} color='primary'>
                                {`$${totalPrice}.00`}
                             </Typography>
                         </CardContent>

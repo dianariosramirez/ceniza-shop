@@ -1,12 +1,14 @@
 import React from 'react';
 
 // MUI components
-import { Box, Button, Divider, Link, TextField, Typography } from '@mui/material';
+import { Box, Button, Divider, Link, TextField, Typography, useMediaQuery } from '@mui/material';
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { Facebook, Instagram, LocalShipping, Lock, Store, TouchApp, WhatsApp } from '@mui/icons-material';
 import { Stack } from '@mui/system';
 
 export const Footer = () => {
+  const isDesktop = useMediaQuery('(min-width:400px)');
+
   return (
     <Box sx={{ mt: 5, backgroundColor: "#437A28", color: "#A1C88F"}} >
       <Grid container spacing={0} >
@@ -28,20 +30,27 @@ export const Footer = () => {
         <Grid 
           xs={12} md={6} 
           sx={{
-            padding: "1rem",
+            padding: "2rem",
             display: "flex",
-            flexDirection: "row",
-            justifyItems: "center"
+            justifyContent: "center",
+            alignContent: "center"
           }}
         >
           <TextField
-              type="email"
-              label="Correo electrónico"
-              variant="filled"
-              size="small"
-              sx={{width:'80%', marginRight:'3%'}}
+            focused
+            type="email"
+            label="Correo electrónico"
+            variant="outlined"
+            size="small"
+            color="warning"
+            sx={{width:'80%', marginRight:'3%'}}
+            InputProps={{
+              sx: {
+                color: "#A1C88F"
+              }
+            }}
           />
-          <Button type="submit" variant="contained" color="primary" size='small' sx={{width:'15%', marginBottom:"1rem", height:"95%"}}>
+          <Button type="submit" variant="contained" color="warning" size='small' sx={{width:'15%', marginBottom:"1rem"}}>
             Enviar
           </Button>
         </Grid>
@@ -61,19 +70,19 @@ export const Footer = () => {
             divider={<Divider orientation="vertical" flexItem />}
           >
             <Box sx={{textAlign: "center"}}>
-              <Lock fontSize="large" />
+              <Lock fontSize= {isDesktop ? "large" : "small" }/>
               <Typography>Pagos seguros</Typography>
             </Box> 
             <Box sx={{textAlign: "center"}}>
-              <TouchApp fontSize="large" />
+              <TouchApp fontSize={isDesktop ? "large" : "small" } />
               <Typography>Compra fácil</Typography>
             </Box>
             <Box sx={{textAlign: "center"}}>
-              <LocalShipping fontSize="large" />
+              <LocalShipping fontSize={isDesktop ? "large" : "small" } />
               <Typography>Envíos a todo México</Typography>
             </Box>
             <Box sx={{textAlign: "center"}}>
-              <Store fontSize="large" />
+              <Store fontSize={isDesktop ? "large" : "small" } />
               <Typography>Tiendas físicas</Typography>
             </Box>
           </Stack>

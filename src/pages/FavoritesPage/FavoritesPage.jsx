@@ -27,7 +27,7 @@ export const FavoritesPage = () => {
     return(  
         <div>
             <TitlePage namePage={"Mis Favoritos"}/>
-            <h1> Estamos trabajando en ello! :D</h1> 
+            <h2 style={{textAlign: "center"}}>Página en construcción 🔧🪛🪚</h2> 
         </div>
         
         // <Box m={3}>

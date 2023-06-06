@@ -22,12 +22,12 @@ export const theme = createTheme({
     },
     warning: {
       light: '#e4e391',
-      main: '#f1ae2b',
-      dark: '#2d1b33',
-      contrastText: '#f4ddb4',
+      main: '#A1C88F',
+      dark: '#314A24',
+      contrastText: '#314A24',
     },
     success: {
-      main: '#a2caa5',
+      main: '##9b9b9b',
       contrastText: '#5f545c',
     },
   },
@@ -71,7 +71,6 @@ export const theme = createTheme({
       fontSize:"1.5rem",
       '@media (max-width:400px)': {
         fontSize:'0.8rem',
-        textAlign: 'center'
       }
     },
     subtitle2: {
@@ -79,7 +78,6 @@ export const theme = createTheme({
       fontSize:"1.2rem",
       fontFamily: "Roboto",
       '@media (max-width:400px)': {
-        textAlign: 'center',
         fontSize:'0.6rem'
       }
     }
