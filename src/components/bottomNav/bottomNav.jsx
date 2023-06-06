@@ -9,17 +9,19 @@ import { Badge } from '@mui/material';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import ShoppingCartCheckoutRoundedIcon from '@mui/icons-material/ShoppingCartCheckoutRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
-
-
+import { useShoppingCartStore } from '../../store/shoppingCartStore';
 
 export const BottomNav = () => {
+
+  const { totalProducts } = useShoppingCartStore();
+
   return (
     <BottomNavigation sx={{ width: '100%' }}>
       <BottomNavigationAction
         label="Carrito de compra"
         value="carrito de compra"
         icon={
-          <Badge badgeContent={1} color="primary">
+          <Badge badgeContent={totalProducts} color="primary">
             <NavLink
               to="shopping_cart/"
               className={({ isActive, isPending }) =>
@@ -43,11 +45,11 @@ export const BottomNav = () => {
             <NavLink
               to="favorites/"
               className={({ isActive, isPending }) =>
-                  isActive
-                  ? "active"
-                  : isPending
-                  ? "pending"
-                  : "none"
+                isActive
+                ? "active"
+                : isPending
+                ? "pending"
+                : "none"
               }  
             >
               <FavoriteBorderRoundedIcon />
@@ -62,11 +64,11 @@ export const BottomNav = () => {
           <NavLink
               to="profile/"
               className={({ isActive, isPending }) =>
-                  isActive
-                  ? "active"
-                  : isPending
-                  ? "pending"
-                  : "none"
+                isActive
+                ? "active"
+                : isPending
+                ? "pending"
+                : "none"
               }  
           >
             <PersonOutlineRoundedIcon />

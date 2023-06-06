@@ -3,6 +3,7 @@ import { create } from 'zustand';
 export const useShoppingCartStore = create( ( set ) => ({
     productsCart: {},
     totalPrice:0,
+    totalProducts: 0,
   
     addToCart: ( product ) => set( ( state ) => {
         const productId = product.id;
@@ -17,7 +18,8 @@ export const useShoppingCartStore = create( ( set ) => ({
                         count: state.productsCart[productId].count + 1,
                     },
                 },
-                totalPrice: state.totalPrice + ( priceProduct * state.productsCart[ productId ].count )
+                totalPrice: state.totalPrice + ( priceProduct * state.productsCart[ productId ].count ),
+                totalProducts: state.totalProducts + 1
             };
         } else {
             return {
@@ -28,7 +30,8 @@ export const useShoppingCartStore = create( ( set ) => ({
                         count: 1,
                     },
                 },
-                totalPrice: state.totalPrice + priceProduct 
+                totalPrice: state.totalPrice + priceProduct ,
+                totalProducts: state.totalProducts + 1
             };
         }
     })
