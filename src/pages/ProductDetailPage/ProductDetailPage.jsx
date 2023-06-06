@@ -1,8 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-// Resources
-import { tizanas, paquetes, accesorios } from '../../resources/productsData';
 
 // Components
 import { ProductDetail } from '../../components/ProductDetail/ProductDetail';
@@ -11,40 +8,70 @@ import { ProductDetail } from '../../components/ProductDetail/ProductDetail';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import { Box } from '@mui/material';
 
+// Services
+import { ProductService } from './services/product.service';
+import { DetailSkeleton } from '../../components/CardSkeleton/CardSkeleton';
+
 export const ProductDetailPage = () => {
-
-  const products = tizanas.concat( paquetes, accesorios);
   const { productId } = useParams();
-  const productSelected = products.find( product => product.id === productId );
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true)
 
-  return (
-    <Grid  container mt={10}>
-      <Grid 
-        xs={12} 
-        md={6}
-        sx={ theme => ( {
-          display: 'flex',
-          justifyContent: 'center',
-          [theme.breakpoints.up('md')]: {
-            justifyContent: 'end'
-          }
-        })}
-      >
-        <Box 
-          width='70%'
-          component='img'
-          src={ productSelected.imageURL }
-        />
+  const getProductType = () => {
+    if (productId.charAt(0) === 't') {
+      return "tizanas";
+    } else if (productId.charAt(0) === 'p') {
+      return "paquetes";
+    } else {
+      return "accesorios";
+    }
+  }
+
+  const productType = getProductType();
+
+  useEffect( () => {
+    ProductService.getProduct(productType, productId).then( productData => {
+        setProduct( productData );
+        setLoading( false );
+    });
+  }, [] )
+
+  if (loading) {
+    return(
+      <DetailSkeleton/>
+    ) 
+  } else {
+    return (
+      <Grid  container mt={10}>
+        <Grid 
+          xs={12} 
+          md={6}
+          sx={ theme => ( {
+            display: 'flex',
+            justifyContent: 'center',
+            [theme.breakpoints.up('md')]: {
+              justifyContent: 'end'
+            }
+          })}
+        >
+          <Box 
+            width='70%'
+            component='img'
+            src={ product.imageURL }
+          />
+        </Grid>
+        <Grid xs={12} md={6}>
+          <ProductDetail 
+            id={ product.id }
+            name={ product.name } 
+            price={ product.price }
+            type={ product.type }
+            info={ product.info }
+            capacity={ product.capacity }
+            imageURL={ product.imageURL }
+          />       
+        </Grid>
       </Grid>
-      <Grid xs={12} md={6}>
-        <ProductDetail 
-          name={ productSelected.name } 
-          price={ productSelected.price }
-          type={ productSelected.type }
-          info={ productSelected.info }
-          capacity={ productSelected.capacity }
-        />       
-      </Grid>
-    </Grid>
-  )
+    )
+  }
 }

@@ -3,9 +3,17 @@ import React from 'react';
 //MUI components
 import { Box, Button, Divider, IconButton, Stack, Typography} from '@mui/material';
 import { Favorite } from '@mui/icons-material';
+import { useShoppingCartStore } from '../../store/shoppingCartStore';
 
-export const ProductDetail = ({ name, type, price, info, capacity }) => {
-  return (
+export const ProductDetail = ({ id, name, type, price, info, capacity, imageURL}) => {
+    const { addToCart } = useShoppingCartStore();
+
+    const onClickAddToCart = () => {
+        console.log('añadido al carrito!')
+        addToCart({ id, name, price, imageURL })
+    }
+
+    return (
     <Stack margin={10}>
         <Typography 
         variant='h4' 
@@ -22,9 +30,13 @@ export const ProductDetail = ({ name, type, price, info, capacity }) => {
         <Typography 
             variant='h6'
             color='primary'
-            sx={{
+            sx={ theme => ({
+                textAlign: 'left',
                 marginBottom: '15px',
-            }}
+                [theme.breakpoints.down('md')]: {
+                    textAlign: 'center'
+                }
+            })}
         >
         { type }
         </Typography>
@@ -54,7 +66,12 @@ export const ProductDetail = ({ name, type, price, info, capacity }) => {
             >
                 <Favorite/>
             </IconButton>
-            <Button variant='contained' color='primary' sx={{ width: '90%'}}>
+            <Button 
+                variant='contained' 
+                color='primary' 
+                sx={{ width: '90%'}}
+                onClick={onClickAddToCart}
+            >
                 Agregar al carrito
             </Button>
         </Box>
