@@ -18,7 +18,7 @@ import ShoppingCartCheckoutRoundedIcon from '@mui/icons-material/ShoppingCartChe
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 
 // Styles
-import { StyledToolbar, MenuList } from "../../styles/appBar";
+import { StyledToolbar, MenuList, Search, SearchIconWrapper, StyledInputBase } from "../../styles/appBar";
 
 // Logo
 import logo from '../../resources/images/logo.png';
@@ -87,11 +87,20 @@ export const AppBarDesktop = () => {
                             <ListItemText primary='Accesorios'sx={{ mr: 5 }}/>
                         </NavLink>
 
-                        <ListItemIcon>
+                        {/* <ListItemIcon>
                             <IconButton>
                                 <SearchIcon />   
                             </IconButton>
-                        </ListItemIcon>
+                        </ListItemIcon> */}
+                        <Search>
+                            <SearchIconWrapper>
+                                <SearchIcon />
+                            </SearchIconWrapper>
+                            <StyledInputBase
+                                placeholder="Buscar..."
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+                        </Search>
 
                     </MenuList>
 
