@@ -4,7 +4,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 // Components
-import { TitlePage } from "../../components/TitlePage/TitlePage";
+import { HeaderPage } from "../../components/HeaderPage/HeaderPage";
 
 // MUI components
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
@@ -12,6 +12,7 @@ import { Avatar, Box, Button, Divider, List, ListItem, Stack, Typography } from 
 
 // Store
 import { useUserStore } from "../../store/user";
+
 
 
 export const ProfilePage = () => {
@@ -27,7 +28,7 @@ export const ProfilePage = () => {
 
     return(
         <>
-            <TitlePage namePage={"Mi perfil"}/>
+            <HeaderPage namePage={"Mi perfil"}/>
             <Grid 
                 container 
                 spacing={1} 

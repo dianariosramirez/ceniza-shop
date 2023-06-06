@@ -6,8 +6,8 @@ import { Grid } from "@mui/material";
 
 // Components
 import { ProductCard } from "../../components/ProductCard/ProductCard";
-import { TitlePage } from "../../components/TitlePage/TitlePage";
 import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
+import { HeaderPage } from "../../components/HeaderPage/HeaderPage";
 
 // Services
 import { AccesoriosService } from "./services/accesorios.service";
@@ -42,7 +42,7 @@ export const AccesoriosPage = () => {
 
     return(  
         <Box m={3}>
-            <TitlePage namePage={"Accesorios"}/>
+            <HeaderPage namePage={"Accesorios"} />
             <Grid container spacing={4}>
             {
                 loading === true 

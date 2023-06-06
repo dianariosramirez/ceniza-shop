@@ -6,7 +6,7 @@ import { Box } from "@mui/system";
 
 // Components
 import { ProductCard } from "../../components/ProductCard/ProductCard";
-import { TitlePage } from "../../components/TitlePage/TitlePage";
+import { HeaderPage } from "../../components/HeaderPage/HeaderPage";
 import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
 
 // Services
@@ -35,12 +35,11 @@ export const TizanasPage = () => {
                     setLoading(false)
                 })
         });
-        
     }, [] )
     
     return(  
         <Box m={3}>
-            <TitlePage namePage={"Tizanas"}/>
+            <HeaderPage namePage={"Tizanas"} />
             <Grid container spacing={4}>
             {
                 loading === true 
