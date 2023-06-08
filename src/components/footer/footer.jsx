@@ -1,4 +1,9 @@
-import React from 'react';
+// Dependencies
+import React, { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+
+// Form
+import { validationSchemaFooter as validationSchema } from '../../resources/helpers/formikHelper';
 
 // MUI components
 import { Box, Button, Divider, Link, TextField, Typography, useMediaQuery } from '@mui/material';
@@ -6,11 +11,31 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { Facebook, Instagram, LocalShipping, Lock, Store, TouchApp, WhatsApp } from '@mui/icons-material';
 import { Stack } from '@mui/system';
 
+const notify = () => toast('¡Gracias por suscribirte! 🌵', {position: 'bottom-center'});
+
 export const Footer = () => {
   const isDesktop = useMediaQuery('(min-width:400px)');
 
+  const [email, setEmail] = useState('');
+
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await validationSchema.validate({ email });
+      setEmail('');
+      notify();
+    } catch (error) {
+      console.log('hubo un error')
+    }
+  }
+
   return (
     <Box sx={{ mt: 5, backgroundColor: "#437A28", color: "#A1C88F"}} >
+      <Toaster />
       <Grid container spacing={0} >
         <Grid 
           xs={12} md={4} 
@@ -38,11 +63,13 @@ export const Footer = () => {
         >
           <TextField
             focused
+            value={email}
             type="email"
             label="Correo electrónico"
             variant="outlined"
             size="small"
             color="warning"
+            onChange={handleChange}
             sx={{width:'80%', marginRight:'3%'}}
             InputProps={{
               sx: {
@@ -50,7 +77,21 @@ export const Footer = () => {
               }
             }}
           />
-          <Button type="submit" variant="contained" color="warning" size='small' sx={{width:'15%', marginBottom:"1rem"}}>
+          <Button 
+            disabled={!(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i).test(email)}
+            type="submit" 
+            variant="contained" 
+            color="warning" 
+            size='small' 
+            sx={{
+              width:'15%', 
+              marginBottom:"1rem", 
+              ":hover":{
+                color:"#A1C88F"
+              }
+            }}
+            onClick={handleSubmit}
+          >
             Enviar
           </Button>
         </Grid>
