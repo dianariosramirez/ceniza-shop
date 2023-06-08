@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 // Pages
 import { NavigationPage } from './pages/NavigationPage/NavigationPage';
-import { TizanasPage } from './pages/TizanasPage/TizanasPage';
+import { TisanasPage } from './pages/TizanasPage/TisanasPage';
 import { PaquetesPage } from './pages/PaquetesPage/PaquetesPage';
 import { NotFoundPage } from './pages/NotFundPage/NotFoundPage';
 import { HomePage } from './pages/HomePage/HomePage';
@@ -31,11 +31,11 @@ const router = createBrowserRouter([
         element: <HomePage />
       },
       {
-        path: "product_tizanas",
-        element: <TizanasPage/>
+        path: "product_tisanas",
+        element: <TisanasPage/>
       },
       {
-        path: "product_tizanas/:productId",
+        path: "product_tisanas/:productId",
         element: <ProductDetailPage/>
       },
       {

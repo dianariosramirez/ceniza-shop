@@ -19,7 +19,7 @@ export const ProductDetailPage = () => {
 
   const getProductType = () => {
     if (productId.charAt(0) === 't') {
-      return "tizanas";
+      return "tisanas";
     } else if (productId.charAt(0) === 'p') {
       return "paquetes";
     } else {

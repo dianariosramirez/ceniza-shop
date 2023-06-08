@@ -1,15 +1,16 @@
+// Dependencies
 import React, { useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom';
 
 // Form
 import { useFormik } from 'formik';
-import { initialValuesToSignInForm as initialValues, validationSchemaSignIn as validationSchema } from '../../resources/helpers/formikHelper';
+import { initialValuesToFooter as initialValues, validationSchemaFooter as validationSchema } from '../../resources/helpers/formikHelper';
 
 //Config
 import { SERVER_URL } from "../../config";
 
 // MUI components
 import { Box, Button, Container, IconButton, InputAdornment, TextField, Typography, useMediaQuery } from '@mui/material';
-import { NavLink, useNavigate } from 'react-router-dom';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 //Store

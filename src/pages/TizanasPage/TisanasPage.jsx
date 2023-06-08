@@ -10,27 +10,27 @@ import { HeaderPage } from "../../components/HeaderPage/HeaderPage";
 import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
 
 // Services
-import { TizanasService } from "./services/tizanas.service";
+import { TisanasService } from "./services/tisanas.service";
 
 
-export const TizanasPage = () => {
-    const [ tizanas, setTizanas ] = useState([]);
+export const TisanasPage = () => {
+    const [ tisanas, setTisanas ] = useState([]);
     const [loading, setLoading] = useState(true);
     
     useEffect( () => {
-        TizanasService.getTizanas().then( tizanas => {
-            setTizanas( tizanas );
+        TisanasService.getTisanas().then( tisanas => {
+            setTisanas( tisanas );
             
-            const loadImage = async (tizana) => {
+            const loadImage = async (tisana) => {
                 const image = new Image();
-                image.src = tizana.imageURL;
+                image.src = tisana.imageURL;
         
                 await new Promise((res, rej) => {
                   image.onload = res;
                 });
             };
 
-            Promise.all( tizanas.map( tizana => loadImage(tizana)) )
+            Promise.all( tisanas.map( tisana => loadImage(tisana)) )
                 .then( () => {
                     setLoading(false)
                 })
@@ -39,7 +39,7 @@ export const TizanasPage = () => {
     
     return(  
         <Box m={3}>
-            <HeaderPage namePage={"Tizanas"} />
+            <HeaderPage namePage={"Tisanas"} />
             <Grid container spacing={4}>
             {
                 loading === true 
@@ -53,15 +53,15 @@ export const TizanasPage = () => {
                     })
                 )
                 : (
-                    tizanas.map( tizana => {
+                    tisanas.map( tisana => {
                     return (
-                        <Grid item xs={6} md={3} key={tizana.id}>
+                        <Grid item xs={6} md={3} key={tisana.id}>
                             <ProductCard
-                                id={tizana.id}
-                                name={tizana.name}
-                                price={tizana.price}
-                                imageURL= {tizana.imageURL}
-                                productDetail={`../product_tizanas/${tizana.id}`}
+                                id={tisana.id}
+                                name={tisana.name}
+                                price={tisana.price}
+                                imageURL= {tisana.imageURL}
+                                productDetail={`../product_tisanas/${tisana.id}`}
                             />  
                         </Grid>
                     )

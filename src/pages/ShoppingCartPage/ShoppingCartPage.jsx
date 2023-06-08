@@ -13,12 +13,15 @@ import { ShoppingList } from "../../components/ShoppingList/ShoppingList";
 import { useShoppingCartStore } from "../../store/shoppingCartStore";
 import { HeaderPage } from "../../components/HeaderPage/HeaderPage";
 
+// Utils
+import { getTotalPrice } from "../../commons/utils/cart.util";
+
 
 export const ShoppingCartPage = () => {
-    const { totalPrice, productsCart } = useShoppingCartStore();
-    console.log( totalPrice );
-    console.log(productsCart);
+    const { productsCart } = useShoppingCartStore();
 
+    const totalPrice = getTotalPrice(Object.values(productsCart));
+    
     return(
         <Box m={3}>
             <HeaderPage namePage={"Carrito de compra"}/>

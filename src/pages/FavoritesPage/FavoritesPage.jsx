@@ -6,11 +6,12 @@ import { Box } from "@mui/system";
 
 // Components
 import { ProductCard } from "../../components/ProductCard/ProductCard";
-import { TitlePage } from "../../components/titlePage/titlePage";
+import { HeaderPage } from "../../components/HeaderPage/HeaderPage";
 import { CardSkeleton } from "../../components/CardSkeleton/CardSkeleton";
 
 // Services
 import { FavoritesService } from "./services/favorites.service";
+
 
 
 export const FavoritesPage = () => {
@@ -26,7 +27,7 @@ export const FavoritesPage = () => {
     
     return(  
         <div>
-            <TitlePage namePage={"Mis Favoritos"}/>
+            <HeaderPage namePage={"Mis Favoritos"}/>
             <h2 style={{textAlign: "center"}}>Página en construcción 🔧🪛🪚</h2> 
         </div>
         

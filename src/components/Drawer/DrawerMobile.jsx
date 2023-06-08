@@ -28,7 +28,7 @@ export const DrawerMobile = ({open, handleDrawerClose}) => {
             </div>
             <List>
                 <NavLink
-                    to="product_tizanas/"
+                    to="product_tisanas/"
                     className={({ isActive, isPending }) =>
                         isActive
                         ? "active"
@@ -42,7 +42,7 @@ export const DrawerMobile = ({open, handleDrawerClose}) => {
                             <ListItemIcon>
                                 <EmojiFoodBeverageOutlined/>
                             </ListItemIcon>
-                            <ListItemText primary={"Tizanas"} />
+                            <ListItemText primary={"Tisanas"} />
                         </ListItemButton>
                     </ListItem>
                 </NavLink>

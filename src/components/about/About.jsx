@@ -50,7 +50,7 @@ export const About = () => {
                     }}
                 >
                     <Typography variant="h5">
-                        Somos una empresa 100% oaxaqueña, elaboramos tizanas 
+                        Somos una empresa 100% oaxaqueña, elaboramos tisanas 
                         artesanales y naturales de la mejor calidad. Trabajamos
                         en infusiones que sean propias de ceniza.mx, con el objetivo 
                         de reencontrarnos con la naturaleza, recolectando 

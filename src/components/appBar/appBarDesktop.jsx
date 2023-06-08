@@ -51,7 +51,7 @@ export const AppBarDesktop = () => {
                         sx={{ ml: 5 }}
                     >
                         <NavLink 
-                            to="product_tizanas/"
+                            to="product_tisanas/"
                             className={({ isActive, isPending }) =>
                                 isActive
                                 ? "active"
@@ -60,7 +60,7 @@ export const AppBarDesktop = () => {
                                 : "none"
                             }
                         >
-                            <ListItemText primary='Tizanas'sx={{ mr: 5 }}/>
+                            <ListItemText primary='Tisanas'sx={{ mr: 5 }}/>
                         </NavLink>
                         <NavLink 
                             to="product_paquetes/"
