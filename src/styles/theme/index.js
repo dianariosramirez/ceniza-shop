@@ -27,9 +27,14 @@ export const theme = createTheme({
       contrastText: '#314A24',
     },
     success: {
-      main: '##9b9b9b',
+      main: '#9b9b9b',
       contrastText: '#5f545c',
     },
+    info:{
+      light: '#A1C88F',
+      main: '#437A28',
+      dark: '#314A24',
+    }
   },
   typography: {
     h5: {
