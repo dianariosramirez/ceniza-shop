@@ -2,12 +2,9 @@ import { create } from 'zustand';
 
 export const useShoppingCartStore = create( ( set ) => ({
     productsCart: {},
-    totalPrice:0,
-    totalProducts: 0,
-  
+    // add to cart
     addToCart: ( product ) => set( ( state ) => {
         const productId = product.id;
-        const priceProduct = product.price;
   
         if ( state.productsCart.hasOwnProperty( productId ) ) {
             return {
@@ -17,9 +14,7 @@ export const useShoppingCartStore = create( ( set ) => ({
                         ...state.productsCart[productId],
                         count: state.productsCart[productId].count + 1,
                     },
-                },
-                totalPrice: state.totalPrice + ( priceProduct * state.productsCart[ productId ].count ),
-                totalProducts: state.totalProducts + 1
+                }
             };
         } else {
             return {
@@ -29,10 +24,49 @@ export const useShoppingCartStore = create( ( set ) => ({
                         productData: product,
                         count: 1,
                     },
-                },
-                totalPrice: state.totalPrice + priceProduct ,
-                totalProducts: state.totalProducts + 1
+                }
             };
+        }
+    }),
+    // Buttons to add and remove
+    removeProduct: ( id ) => set( (state) => {
+        if(state.productsCart[id].count > 1) {
+            return {
+                productsCart: {
+                    ...state.productsCart,
+                    [id]: {
+                        ...state.productsCart[id],
+                        count: state.productsCart[id].count - 1
+                    }
+                }
+            }
+        } else {
+            const updatedProductsCart = { ...state.productsCart };
+            delete updatedProductsCart[id];
+    
+            return {
+            productsCart: updatedProductsCart
+            }
+        }
+    }),
+
+    addProduct: ( id ) => set( (state) => ({
+        productsCart: {
+            ...state.productsCart,
+            [id]: {
+                ...state.productsCart[id],
+                count: state.productsCart[id].count + 1
+            }
+        }
+    })),
+
+    // Remove to cart
+    removeToCart: ( id ) => set( (state) => {
+        const updatedProductsCart = { ...state.productsCart };
+        delete updatedProductsCart[id];
+
+        return {
+            productsCart: updatedProductsCart
         }
     })
 }));

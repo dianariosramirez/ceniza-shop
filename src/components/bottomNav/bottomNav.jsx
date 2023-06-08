@@ -11,9 +11,14 @@ import ShoppingCartCheckoutRoundedIcon from '@mui/icons-material/ShoppingCartChe
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import { useShoppingCartStore } from '../../store/shoppingCartStore';
 
+// Utils
+import { getTotalProducts } from '../../commons/utils/cart.util';
+
 export const BottomNav = () => {
 
-  const { totalProducts } = useShoppingCartStore();
+  const { productsCart } = useShoppingCartStore();
+  const totalProducts = getTotalProducts(Object.values(productsCart));
+
 
   return (
     <BottomNavigation sx={{ width: '100%' }}>
