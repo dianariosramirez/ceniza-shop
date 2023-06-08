@@ -11,6 +11,9 @@ export const initialValuesToRegisterForm = {
     city: '',
     state:''
 }
+export const initialValuesToFooter = {
+    email:''
+}
 
 export const validationSchemaSignIn = Yup.object( {
     email: Yup.string()
@@ -35,4 +38,9 @@ export const validationSchemaRegister = Yup.object( {
         .required( 'Campo obligatorio' ),
     state: Yup.string()
         .required( 'Campo obligatorio' )
+})
+
+export const validationSchemaFooter = Yup.object( {
+    email: Yup.string()
+    .email( 'Escribe un formato válido' )
 })
