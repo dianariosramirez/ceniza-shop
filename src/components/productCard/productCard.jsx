@@ -32,7 +32,7 @@ export const ProductCard = ({ id, name, price, imageURL, productDetail }) => {
     addToCart({ id, name, price, imageURL, productDetail });
     enqueueSnackbar('¡Añadido al carrito!', {
       variant:'success',
-      anchorOrigin: {horizontal: 'rigth', vertical: 'bottom'},
+      anchorOrigin: {horizontal: 'center', vertical: 'bottom'},
       style: {
           backgroundColor: 'white',
           color: 'green',
