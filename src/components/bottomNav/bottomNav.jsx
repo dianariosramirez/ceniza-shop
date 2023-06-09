@@ -46,7 +46,7 @@ export const BottomNav = () => {
         label="Favoritos"
         value="favoritos"
         icon={
-          <Badge badgeContent={3} color="primary">
+          <Badge badgeContent={0} color="primary">
             <NavLink
               to="favorites/"
               className={({ isActive, isPending }) =>

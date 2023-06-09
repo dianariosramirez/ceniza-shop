@@ -1,4 +1,5 @@
-import React from "react";
+// Dependencies
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 //Material UI components
@@ -18,15 +19,36 @@ import ShoppingCartCheckoutRoundedIcon from '@mui/icons-material/ShoppingCartChe
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 
 // Styles
-import { StyledToolbar, MenuList, Search, SearchIconWrapper, StyledInputBase } from "../../styles/appBar";
+import { StyledToolbar, MenuList } from "../../styles/appBar";
 
 // Logo
 import logo from '../../resources/images/logo.png';
 
+// Components
+import { SearchDialog } from "../Search/Search";
+
 // Constants
 import { REPO_BASE_NAME } from '../../commons/constants';
 
+// Store
+import { useShoppingCartStore } from "../../store/shoppingCartStore";
+
+// Utils
+import { getTotalProducts } from "../../commons/utils/cart.util";
+
 export const AppBarDesktop = () => {
+    const [openSearch, setOpenSearch] = useState(false);
+
+    const handleOpenSearch = () => {
+        setOpenSearch(true);
+    };
+
+    const handleCloseSearch = () => {
+        setOpenSearch(false);
+    };
+
+    const { productsCart } = useShoppingCartStore();
+    const totalProducts = getTotalProducts(Object.values(productsCart));
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -87,20 +109,12 @@ export const AppBarDesktop = () => {
                             <ListItemText primary='Accesorios'sx={{ mr: 5 }}/>
                         </NavLink>
 
-                        {/* <ListItemIcon>
-                            <IconButton>
+                        <ListItemIcon>
+                            <IconButton onClick={handleOpenSearch}>
                                 <SearchIcon />   
                             </IconButton>
-                        </ListItemIcon> */}
-                        <Search>
-                            <SearchIconWrapper>
-                                <SearchIcon />
-                            </SearchIconWrapper>
-                            <StyledInputBase
-                                placeholder="Buscar..."
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
-                        </Search>
+                            <SearchDialog open={openSearch} handleClose={handleCloseSearch}/>
+                        </ListItemIcon>
 
                     </MenuList>
 
@@ -115,7 +129,7 @@ export const AppBarDesktop = () => {
                         }
                     >
                         <IconButton size="large" aria-label="search" color="inherit">
-                            <Badge badgeContent={1} color="primary">
+                            <Badge badgeContent={totalProducts} color="primary">
                                 <ShoppingCartCheckoutRoundedIcon />
                             </Badge>
                         </IconButton>
@@ -131,7 +145,7 @@ export const AppBarDesktop = () => {
                         }                    
                     >
                         <IconButton size="large" aria-label="search" color="inherit">
-                            <Badge badgeContent={1} color="primary">
+                            <Badge badgeContent={0} color="primary">
                                 <FavoriteBorderRoundedIcon />
                             </Badge>
                         </IconButton>
