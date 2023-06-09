@@ -1,7 +1,7 @@
 // Dependencies
 import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
+import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 
 // MUI components
 import { Box, Card, CardContent, IconButton, Typography, useMediaQuery } from '@mui/material';
@@ -18,8 +18,6 @@ export const ProductCard = ({ id, name, price, imageURL, productDetail }) => {
   const [ favoriteMark, setFavoriteMark] = useState( "notFav" );
   const { addToCart } = useShoppingCartStore();
 
-  const notifyAddToCart = () => toast.success('¡Añadido al carrito!');
-
   const onClickFav = (e) => {
     e.stopPropagation();
     if ( favoriteMark === "notFav" ) {
@@ -32,14 +30,23 @@ export const ProductCard = ({ id, name, price, imageURL, productDetail }) => {
   const onClickAddToCart = (e) => {
     e.stopPropagation();
     addToCart({ id, name, price, imageURL, productDetail });
-    notifyAddToCart();
+    enqueueSnackbar('¡Añadido al carrito!', {
+      variant:'success',
+      anchorOrigin: {horizontal: 'rigth', vertical: 'bottom'},
+      style: {
+          backgroundColor: 'white',
+          color: 'green',
+          fontFamily: 'sans-serif',
+          fontWeight: 'bold'
+      }
+    }) 
   }
 
   const navigate = useNavigate();
 
   return (
     <>
-      <Toaster/>
+      <SnackbarProvider/>
       <Card
           onClick={() => {
             navigate(productDetail)

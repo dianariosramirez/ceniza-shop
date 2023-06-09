@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 
 // Form
 import { useFormik } from 'formik';
@@ -76,6 +77,7 @@ export const RegisterForm = () => {
         justifyContent: "center"
       }}
     >
+      <SnackbarProvider/>
       <Box 
         component="form" 
         width={ matches ? "50%" : "80%"}
@@ -183,6 +185,17 @@ export const RegisterForm = () => {
           variant="contained" 
           type="submit" 
           disabled={!(isValid && dirty)}
+          onClick={() => enqueueSnackbar('Registro exitoso', {
+            variant:'success',
+            anchorOrigin: {horizontal: 'center', vertical: 'bottom'},
+            autoHideDuration: 6000,
+            style: {
+                backgroundColor: 'white',
+                color: 'green',
+                fontFamily: 'sans-serif',
+                fontWeight: 'bold'
+            }
+          })}
         >
           Continuar
         </Button>     

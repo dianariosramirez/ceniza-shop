@@ -1,6 +1,6 @@
 // Dependencies
 import React, { useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 
 // Form
 import { validationSchemaFooter as validationSchema } from '../../resources/helpers/formikHelper';
@@ -10,8 +10,6 @@ import { Box, Button, Divider, Link, TextField, Typography, useMediaQuery } from
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { Facebook, Instagram, LocalShipping, Lock, Store, TouchApp, WhatsApp } from '@mui/icons-material';
 import { Stack } from '@mui/system';
-
-const notify = () => toast('¡Gracias por suscribirte! 🌵', {position: 'bottom-center'});
 
 export const Footer = () => {
   const isDesktop = useMediaQuery('(min-width:400px)');
@@ -27,7 +25,15 @@ export const Footer = () => {
     try {
       await validationSchema.validate({ email });
       setEmail('');
-      notify();
+      enqueueSnackbar('🌵 ¡Gracias por suscribirte!', {
+        anchorOrigin: {horizontal: 'center', vertical: 'bottom'},
+        style: {
+            backgroundColor: 'white',
+            color: 'green',
+            fontFamily: 'sans-serif',
+            fontWeight: 'bold'
+        }
+      })
     } catch (error) {
       console.log('hubo un error')
     }
@@ -35,7 +41,7 @@ export const Footer = () => {
 
   return (
     <Box sx={{ mt: 5, backgroundColor: "#437A28", color: "#A1C88F"}} >
-      <Toaster />
+      <SnackbarProvider />
       <Grid container spacing={0} >
         <Grid 
           xs={12} md={4} 

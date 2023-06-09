@@ -1,26 +1,45 @@
 // Dependencies
-import React from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import React, { useState } from 'react';
+import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 
 //MUI components
-import { Box, Button, Divider, IconButton, Stack, Typography} from '@mui/material';
+import { Box, Button, Divider, IconButton, Stack, Typography, useMediaQuery} from '@mui/material';
 import { Favorite } from '@mui/icons-material';
+
+// Store
 import { useShoppingCartStore } from '../../store/shoppingCartStore';
 
 export const ProductDetail = ({ id, name, type, price, info, capacity, imageURL}) => {
-    
+    const [ favoriteMark, setFavoriteMark] = useState( "notFav" );
+
     const { addToCart } = useShoppingCartStore();
-    const notifyAddToCart = () => toast.success('¡Añadido al carrito!');
+
     const onClickAddToCart = () => {
         addToCart({ id, name, price, imageURL });
-        notifyAddToCart();        
+        enqueueSnackbar('¡Añadido al carrito!', {
+            variant:'success',
+            anchorOrigin: {horizontal: 'center', vertical: 'bottom'},
+            style: {
+                backgroundColor: 'white',
+                color: 'green',
+                fontFamily: 'sans-serif',
+                fontWeight: 'bold'
+            }
+        })      
     }
 
-    
+    const onClickFav = (e) => {
+        e.stopPropagation();
+        if ( favoriteMark === "notFav" ) {
+            setFavoriteMark( 'isFav' );
+        } else {
+            setFavoriteMark( 'notFav' );
+        }
+    }
 
     return (
     <>
-        <Toaster/>
+        <SnackbarProvider/>
         <Stack margin={2}>
             <Typography 
             variant='h4' 
@@ -68,8 +87,8 @@ export const ProductDetail = ({ id, name, type, price, info, capacity, imageURL}
                 }}
             >
                 <IconButton 
-                    // onClick={onClickFav} 
-                    // color= { favoriteMark === "isFav" ? "primary" : "gray"}
+                    onClick={onClickFav}
+                    color={favoriteMark === "isFav" ? "primary" : "success"}
                 >
                     <Favorite/>
                 </IconButton>
@@ -95,18 +114,22 @@ export const ProductDetail = ({ id, name, type, price, info, capacity, imageURL}
             >
             { info }
             </Typography>
-            <Typography 
-                variant='h7'
-                sx={ theme => ({
-                    marginBottom: '20px',
-                    marginTop: '10px',
-                    fontWeight: '400',
-                    fontStyle: 'italic',
-                    textAlign: 'end'
-                })}
-            >
-            Capacidad: { capacity }
-            </Typography>
+            {
+                capacity !== '' && (
+                    <Typography 
+                        variant='h7'
+                        sx={ theme => ({
+                            marginBottom: '20px',
+                            marginTop: '10px',
+                            fontWeight: '400',
+                            fontStyle: 'italic',
+                            textAlign: 'end'
+                        })}
+                    >
+                        Capacidad: { capacity }
+                    </Typography>
+                )
+            }
         </Stack> 
     </>
   )

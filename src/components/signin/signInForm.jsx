@@ -1,6 +1,7 @@
 // Dependencies
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom';
+import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 
 // Form
 import { useFormik } from 'formik';
@@ -71,6 +72,7 @@ export const SignInForm = () => {
         justifyContent: "center"
       }}
     >
+      <SnackbarProvider/>
       <Box 
         component="form" 
         width={ matches ? "50%" : "80%"}
@@ -132,6 +134,17 @@ export const SignInForm = () => {
           variant="contained" 
           type="submit" 
           disabled={!(isValid && dirty)}
+          onClick={() => enqueueSnackbar('¡Bienvenido/a!', {
+            variant:'success',
+            anchorOrigin: {horizontal: 'center', vertical: 'bottom'},
+            autoHideDuration: 6000,
+            style: {
+                backgroundColor: 'white',
+                color: 'green',
+                fontFamily: 'sans-serif',
+                fontWeight: 'bold'
+            }
+          })}
         >
           Continuar
         </Button>  
