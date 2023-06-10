@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 
 // MUI components
-import { Box, Card, CardContent, IconButton, Typography, useMediaQuery } from '@mui/material';
+import { Box, Card, CardActions, CardContent, IconButton, Typography, useMediaQuery } from '@mui/material';
 import { AddShoppingCart, Favorite } from '@mui/icons-material';
 import { Stack } from '@mui/system';
 
@@ -85,38 +85,29 @@ export const ProductCard = ({ id, name, price, imageURL, productDetail }) => {
               <Favorite fontSize={isDesktop ? 'medium' : 'small'}/>
             </IconButton>
           </Box>
-        <CardContent sx={{paddingBottom: "1px"}}>
-          <Stack 
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginBottom: "0.3rem",
-              paddingBottom: "none"
-            }}
-          >
-            <Box>
-              <Typography variant="subtitle2">
-                {name}
-              </Typography>
-              <Typography variant="subtitle1" sx={{ color: 'green', fontWeight:'bold' }}>
-                {`$${price}.00`}
-              </Typography>
-            </Box>
-            <Box>
-              <IconButton 
-                onClick={onClickAddToCart}
-                sx={{
-                  ":hover": {
-                    color: 'green'
-                  }
-                }}
-              >
-                <AddShoppingCart fontSize={isDesktop ? 'medium' : 'small'}/>
-              </IconButton>
-            </Box>
-          </Stack>
-        </CardContent>
+          
+        <Box sx={{display: 'flex', justifyContent:'space-between'}}>
+          <CardContent sx={{padding: '0.6rem'}}>
+            <Typography variant="subtitle2">
+              {name}
+            </Typography>
+            <Typography variant="subtitle1" sx={{ color: 'green', fontWeight:'bold' }}>
+              {`$${price}.00`}
+            </Typography>
+          </CardContent>
+          <CardActions sx={{padding: '0.5rem'}}>
+            <IconButton 
+              onClick={onClickAddToCart}
+              sx={{
+                ":hover": {
+                  color: 'green'
+                }
+              }}
+            >
+              <AddShoppingCart fontSize={isDesktop ? 'medium' : 'small'}/>
+            </IconButton>
+          </CardActions>
+        </Box>
       </Card>
     </>
   );

@@ -40,7 +40,7 @@ export const ProductDetail = ({ id, name, type, price, info, capacity, imageURL}
     return (
     <>
         <SnackbarProvider/>
-        <Stack margin={2}>
+        <Stack margin={5}>
             <Typography 
             variant='h4' 
             sx={ theme => ({
@@ -64,7 +64,7 @@ export const ProductDetail = ({ id, name, type, price, info, capacity, imageURL}
                     }
                 })}
             >
-            { type }
+                { type }
             </Typography>
             <Divider/>
             <Typography 
@@ -102,10 +102,10 @@ export const ProductDetail = ({ id, name, type, price, info, capacity, imageURL}
                 </Button>
             </Box>
             <Typography 
-                variant='h6'
+                variant='body1'
                 sx={ theme => ({
-                    marginBottom: '25px',
-                    marginTop: '50px',
+                    marginBottom: '2rem',
+                    marginTop: '2rem',
                     fontWeight: '300',
                     [theme.breakpoints.down('md')]: {
                         textAlign: 'center'
@@ -117,12 +117,10 @@ export const ProductDetail = ({ id, name, type, price, info, capacity, imageURL}
             {
                 capacity !== '' && (
                     <Typography 
-                        variant='h7'
+                        variant='body1'
                         sx={ theme => ({
                             marginBottom: '20px',
                             marginTop: '10px',
-                            fontWeight: '400',
-                            fontStyle: 'italic',
                             textAlign: 'end'
                         })}
                     >

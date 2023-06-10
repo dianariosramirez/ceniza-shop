@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 //MUI components
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 // Components
@@ -28,7 +28,7 @@ export const FavoritesPage = () => {
     return(  
         <div>
             <HeaderPage namePage={"Mis Favoritos"}/>
-            <h2 style={{textAlign: "center"}}>Página en construcción 🔧🪛🪚</h2> 
+            <Typography  sx={{textAlign: "center"}}>Página en construcción 🔧🪛🪚</Typography> 
         </div>
         
         // <Box m={3}>

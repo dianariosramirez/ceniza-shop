@@ -49,7 +49,6 @@ export const AppBarMobile = () => {
                     <IconButton onClick={handleOpenSearch}>
                         <SearchIcon />   
                     </IconButton>
-                    <SearchDialog open={openSearch} handleClose={handleCloseSearch}/>
                     <Box
                         size="large"
                         edge="start"
@@ -60,7 +59,6 @@ export const AppBarMobile = () => {
                         <NavLink to={ REPO_BASE_NAME }>
                             <img src={ logo }/>
                         </NavLink>
-                        
                     </Box>
                     <IconButton
                         id="basic-button"
@@ -73,6 +71,7 @@ export const AppBarMobile = () => {
                     </IconButton>
                 </StyledToolbar>
             </AppBar>
+            <SearchDialog open={openSearch} handleClose={handleCloseSearch}/>
             <DrawerMobile
                 open={openDrawer} 
                 handleDrawerClose={handleDrawerClose}

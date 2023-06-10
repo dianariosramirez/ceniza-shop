@@ -34,7 +34,7 @@ export const ProductDetailPage = () => {
         setProduct( productData );
         setLoading( false );
     });
-  }, [] )
+  }, [productId, productType] )
 
   if (loading) {
     return(
@@ -42,7 +42,7 @@ export const ProductDetailPage = () => {
     ) 
   } else {
     return (
-      <Grid  container mt={10}>
+      <Grid  container mt={5}>
         <Grid 
           xs={12} 
           md={6}
