@@ -26,7 +26,7 @@ export const About = () => {
                     <Box 
                         component="img"
                         alt="Sobre nosotros"
-                        src="https://i.ibb.co/ngy9Qwh/about-image.png"
+                        src="https://i.ibb.co/bgvnF6t/about-image-min.png"
                         sx={ theme => ({
                             width: "400px",
                             height: "400px",

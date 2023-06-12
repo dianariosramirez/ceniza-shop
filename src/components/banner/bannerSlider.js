@@ -1,40 +1,20 @@
-// Images
-import slider from '../../resources/images/slider.png';
-import slider1 from '../../resources/images/slider1.png';
-import slider3 from '../../resources/images/slider3.png';
-import slider4 from '../../resources/images/slider4.png';
-import slider5 from '../../resources/images/slider5.png';
-import slider6 from '../../resources/images/slider6.png';
-import slider7 from '../../resources/images/slider7.png';
-
 
 export const sliderToCarrusel =  [
     {
         "id": 100,
-        "image": slider
+        "image": "https://i.ibb.co/16r55TC/slider3-min.png"
     },
     {
         "id": 101,
-        "image": slider1
+        "image": 'https://i.ibb.co/bmJbfWP/slider5-min.png'
     },
     {
         "id": 103,
-        "image": slider3
+        "image": 'https://i.ibb.co/8KQwKhF/slider7-min.png'
     },
     {
         "id": 104,
-        "image": slider4
-    },
-    {
-        "id": 105,
-        "image": slider5
-    },
-    {
-        "id": 106,
-        "image": slider6
-    },
-    {
-        "id": 107,
-        "image": slider7
+        "image": 'https://i.ibb.co/bKsJGnX/slider4-min.png'
     }
 ]
+
