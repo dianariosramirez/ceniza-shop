@@ -12,7 +12,6 @@ import { HeaderPage } from "../../components/HeaderPage/HeaderPage";
 // Services
 import { PaquetesService } from "./services/paquetes.service";
 
-
 export const PaquetesPage = () => {
 
     const [ paquetes, setPaquetes ] = useState([]);
@@ -33,7 +32,7 @@ export const PaquetesPage = () => {
 
             Promise.all( paquetes.map( paquete => loadImage(paquete)) )
                 .then( () => {
-                    setLoading(false)
+                    setLoading(false);
                 })
         });
         

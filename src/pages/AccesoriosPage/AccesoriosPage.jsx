@@ -34,7 +34,7 @@ export const AccesoriosPage = () => {
 
             Promise.all( accesorios.map( accesorio => loadImage(accesorio)) )
                 .then( () => {
-                    setLoading(false)
+                    setLoading(false);
                 })
         });
         
