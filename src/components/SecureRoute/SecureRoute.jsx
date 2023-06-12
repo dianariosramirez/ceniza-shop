@@ -6,7 +6,7 @@ export const SecureRoute = ( { children } ) => {
         return localStorage.getItem('isLogged') === 'true' ? true : false;
     }, []);
 
-    return isLogged ? children : <Navigate to='/ceniza-shop/signin'/>;
+    return isLogged ? children : <Navigate to='/signin'/>;
 }
 
 

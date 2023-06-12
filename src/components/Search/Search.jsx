@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Autocomplete, Box, TextField } from '@mui/material';
+import { Autocomplete, Box, TextField, Typography } from '@mui/material';
 import { Search, SearchIconWrapper, StyledInputBase } from '../../styles/appBar';
 import { SearchOutlined } from '@mui/icons-material';
 
@@ -43,16 +43,18 @@ export const SearchDialog = ({open, handleClose}) => {
               renderOption={(props, option) => (
                 <Box 
                   component="li" 
-                  sx={{ '& > img': { mr: 2, flexShrink: 0 } }} 
+                  sx={{ '& > img': { mr: 2, flexShrink: 0 }, height: '60px' }} 
                   {...props}
                 >
-                  <img
-                    loading="lazy"
-                    width="50"
-                    src={option.imageURL}
-                    alt=""
-                  />
-                  {option.name} 
+                    <img
+                      loading="lazy"
+                      width="50"
+                      src={option.imageURL}
+                      alt=""
+                    />
+                  <Typography height="50">
+                    {option.name}
+                  </Typography>
                 </Box>
               )}
               renderInput={(params) => (
