@@ -110,7 +110,7 @@ export const AppBarDesktop = () => {
                         </NavLink>
 
                         <ListItemIcon>
-                            <IconButton onClick={handleOpenSearch}>
+                            <IconButton onClick={handleOpenSearch} color="inherit">
                                 <SearchIcon />   
                             </IconButton>
                             <SearchDialog open={openSearch} handleClose={handleCloseSearch}/>
@@ -161,6 +161,7 @@ export const AppBarDesktop = () => {
                         } 
                     >
                         <IconButton
+                            color="inherit"
                             size="large"
                             aria-label="display more actions"
                             edge="end"

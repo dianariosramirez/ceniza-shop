@@ -2,9 +2,7 @@ import React from "react";
 
 // MUI components
 import {
-    Paper, 
-    Button,  
-    Typography
+    Paper
 } from '@mui/material';
 
 

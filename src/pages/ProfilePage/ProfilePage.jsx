@@ -17,12 +17,12 @@ import { useUserStore } from "../../store/user";
 
 export const ProfilePage = () => {
 
-    const { name, city, state } = useUserStore();
+    const { name, city, state, userUnlogged  } = useUserStore();
     const navigate = useNavigate();
 
     const onLogOut = () => {
         localStorage.setItem('isLogged', 'false');
-        console.log('Chaus Chaus');
+        userUnlogged();
         navigate("../signin");
     }
 

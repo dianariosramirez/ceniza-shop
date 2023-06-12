@@ -26,7 +26,7 @@ export const ShoppingList = () => {
                                     <Box 
                                         component="img" 
                                         src={product.productData.imageURL}
-                                        width={ isDesktop ? "10rem" : '100%' }                              
+                                        width={ '100%' }                              
                                     />
                                 </Grid>
                                 <Grid xs={9} md={10} 

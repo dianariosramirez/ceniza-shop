@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Autocomplete, Box, TextField, Typography } from '@mui/material';
+import { Autocomplete, Box, Typography } from '@mui/material';
 import { Search, SearchIconWrapper, StyledInputBase } from '../../styles/appBar';
 import { SearchOutlined } from '@mui/icons-material';
 
@@ -43,7 +43,13 @@ export const SearchDialog = ({open, handleClose}) => {
               renderOption={(props, option) => (
                 <Box 
                   component="li" 
-                  sx={{ '& > img': { mr: 2, flexShrink: 0 }, height: '60px' }} 
+                  sx={{ 
+                    '& > img': { mr: 2, flexShrink: 0 },
+                    height: '60px',
+                    ":hover": {
+                      color:'green'
+                    } 
+                  }} 
                   {...props}
                 >
                     <img
@@ -52,7 +58,7 @@ export const SearchDialog = ({open, handleClose}) => {
                       src={option.imageURL}
                       alt=""
                     />
-                  <Typography height="50">
+                  <Typography height="50" >
                     {option.name}
                   </Typography>
                 </Box>

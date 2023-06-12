@@ -12,7 +12,7 @@ export const CardSkeleton = () => {
     <Card>
         <Skeleton
             variant='rectangular'
-            height={isDesktop ? '400px' : '100px'}
+            height={isDesktop ? '360px' : '140px'}
         />
         <CardContent>
             <Stack spacing={1} >
@@ -23,7 +23,7 @@ export const CardSkeleton = () => {
                 <Skeleton
                     variant='rectangular'
                     width='20%'
-                    height='12px'
+                    height={isDesktop ? '12px' : '9px' }
                 />                
             </Stack>
         </CardContent>

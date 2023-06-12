@@ -6,7 +6,7 @@ import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 import { validationSchemaFooter as validationSchema } from '../../resources/helpers/formikHelper';
 
 // MUI components
-import { Box, Button, Divider, Link, TextField, Typography, useMediaQuery } from '@mui/material';
+import { Box, Button, Divider, IconButton, Link, TextField, Typography, useMediaQuery } from '@mui/material';
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { Facebook, Instagram, LocalShipping, Lock, Store, TouchApp, WhatsApp } from '@mui/icons-material';
 import { Stack } from '@mui/system';
@@ -145,15 +145,21 @@ export const Footer = () => {
             +52 953 123 4258
           </Typography>
           <Stack direction="row" justifyContent="center" spacing={{ xs: 1, sm: 2, md: 4 }} sx={{ margin: 2}}>
-            <Link color="#A1C88F" component="button" href='https://www.facebook.com/ceniza.mx/'>
-              <Facebook/>
-            </Link>
-            <Link color="#A1C88F" component="button" href='https://www.instagram.com/ceniza.mx/'>
+            <IconButton>
+              <Link color="#A1C88F" href='https://www.facebook.com/ceniza.mx/' target="_blank">
+                <Facebook/>
+              </Link>
+            </IconButton>
+            <IconButton>
+              <Link color="#A1C88F" href='https://www.instagram.com/ceniza.mx/' target="_blank">
               <Instagram/>
-            </Link>
-            <Link color="#A1C88F" component="button" href='https://api.whatsapp.com/send?phone=9531234258&text=Hola%20Ceniza%20Mx'>
+              </Link>
+            </IconButton>
+            <IconButton>
+              <Link color="#A1C88F" href='https://api.whatsapp.com/send?phone=9531234258&text=Hola%20Ceniza%20Mx' target="_blank">
               <WhatsApp/>
-            </Link>
+              </Link>
+            </IconButton>
           </Stack>
         </Grid>
         <Grid 
