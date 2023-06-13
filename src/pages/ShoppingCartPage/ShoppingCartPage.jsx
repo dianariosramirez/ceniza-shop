@@ -1,4 +1,5 @@
 import React from "react";
+import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 
 // MUI components
 import { Box } from "@mui/system";
@@ -24,6 +25,7 @@ export const ShoppingCartPage = () => {
     
     return(
         <Box m={3}>
+            <SnackbarProvider/>
             <HeaderPage namePage={"Carrito de compra"}/>
             <Grid container spacing={2}>
                 <Grid xs={12} sm={12} md={8}>
@@ -47,6 +49,19 @@ export const ShoppingCartPage = () => {
                                 variant="contained"
                                 sx={{
                                     width:"100%"
+                                }}
+                                onClick={() => {
+                                    enqueueSnackbar('Gracias por tu compra, ¡Sección en construcción! 🔧🪚', {
+                                        variant:'info',
+                                        anchorOrigin: {horizontal: 'center', vertical: 'bottom'},
+                                        autoHideDuration: 6000,
+                                        style: {
+                                            backgroundColor: 'white',
+                                            color: 'blue',
+                                            fontFamily: 'sans-serif',
+                                            fontWeight: 'bold'
+                                        }
+                                    })
                                 }}
                             >
                                 Finalizar pedido

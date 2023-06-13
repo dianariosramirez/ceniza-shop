@@ -16,6 +16,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 //Store
 import { useUserStore } from '../../store/user';
+import { SigninService } from '../../pages/SignInPage/services/signin.service';
 
 const errorMessageStyle = {
   fontSize: '0.6rem', 
@@ -31,25 +32,36 @@ export const SignInForm = () => {
 
   // Request
   const onSubmit = ( values ) => {
-    fetch( `${SERVER_URL}/signin`, {
-      method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify( {
-        email: values.email,
-        password: values.password
-      })
-    })
-    .then( response => response.json() )
+    SigninService.getUserLogged(values.email, values.password)
     .then( user => {
-      if ( user.id ) {
         localStorage.setItem('isLogged', 'true');
         console.log( values );
         userDataLogged( user );
         navigate("../profile");
-      }
+        enqueueSnackbar('¡Bienvenido/a!', {
+          variant:'success',
+          anchorOrigin: {horizontal: 'center', vertical: 'bottom'},
+          autoHideDuration: 6000,
+          style: {
+              backgroundColor: 'white',
+              color: 'green',
+              fontFamily: 'sans-serif',
+              fontWeight: 'bold'
+          }
+        })
     })
     .catch( () => {
-      console.log( 'El usuario no existe' )
+      enqueueSnackbar('Usuario no encontrado o contraseña inválida', {
+        variant:'error',
+        anchorOrigin: {horizontal: 'center', vertical: 'bottom'},
+        autoHideDuration: 6000,
+        style: {
+            backgroundColor: 'white',
+            color: 'red',
+            fontFamily: 'sans-serif',
+            fontWeight: 'bold'
+        }
+      })
     });  
   }
 
@@ -134,17 +146,6 @@ export const SignInForm = () => {
           variant="contained" 
           type="submit" 
           disabled={!(isValid && dirty)}
-          onClick={() => enqueueSnackbar('¡Bienvenido/a!', {
-            variant:'success',
-            anchorOrigin: {horizontal: 'center', vertical: 'bottom'},
-            autoHideDuration: 6000,
-            style: {
-                backgroundColor: 'white',
-                color: 'green',
-                fontFamily: 'sans-serif',
-                fontWeight: 'bold'
-            }
-          })}
         >
           Continuar
         </Button>  
